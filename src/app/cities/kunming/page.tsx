@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function ShanghaiPage() {
+export default function KunmingPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-8 md:py-16">
       <Link href="/cities" className="mb-6 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink">
@@ -13,10 +13,10 @@ export default function ShanghaiPage() {
 
       {/* City Header — Original style */}
       <div className="mb-10">
-        <h1 className="text-4xl font-[450] tracking-tight">Shanghai</h1>
-        <p className="mt-2 text-lg text-stone">🌃 The Pearl of the Orient, City of Endless Energy</p>
+        <h1 className="text-4xl font-[450] tracking-tight">Kunming</h1>
+        <p className="mt-2 text-lg text-stone">🌸 The Spring City, Gateway to Yunnan</p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {["Modern Metropolis ★★★★★", "Food Scene ★★★★☆", "Tech & Innovation ★★★★☆"].map((t) => (
+          {["Natural Scenery ★★★★☆", "Minority Culture ★★★★☆", "Spring Climate ★★★★★"].map((t) => (
             <span key={t} className="rounded-full bg-celadon/10 px-3 py-1 text-xs text-celadon">{t}</span>
           ))}
         </div>
@@ -27,44 +27,44 @@ export default function ShanghaiPage() {
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-See Attractions</h2>
         <div className="space-y-5">
           <AttractionCard
-            name="The Bund"
-            nameCn="外滩"
-            time="1-2 hours"
-            price="Free"
-            tip="Best at dusk when the lights come on — free, no reservation needed"
-            transport="Metro Line 2/10, East Nanjing Road Station"
+            name="Stone Forest (Shilin)"
+            nameCn="石林"
+            time="Half day"
+            price="¥130"
+            tip="A UNESCO site with surreal karst formations. Take the electric cart (¥25) to save walking"
+            transport="HSR from Kunming South to Shilin West (20min, ¥18)"
           />
           <AttractionCard
-            name="Shanghai Museum"
-            nameCn="上海博物馆"
-            time="2-3 hours"
-            price="Free"
-            tip="Free entry, book via their WeChat mini-program 3 days ahead"
-            transport="Metro Line 1/8, People's Square Station"
+            name="Dianchi Lake & Western Hills"
+            nameCn="滇池"
+            time="Half day"
+            price="Free (cable car ¥70)"
+            tip="Take the cable car up for panoramic views of the lake. The dragon gate carved into the cliff is incredible"
+            transport="Bus 44 or 24 from city center (40min)"
           />
           <AttractionCard
-            name="Oriental Pearl / Lujiazui"
-            nameCn="东方明珠"
-            time="2 hours"
-            price="¥199"
-            tip="Tower entry ¥199, book via Trip.com"
-            transport="Metro Line 2, Lujiazui Station"
-          />
-          <AttractionCard
-            name="Wukang Road"
-            nameCn="武康路"
-            time="1-2 hours"
-            price="Free"
-            tip="Perfect for a stroll with great photo spots and cafés along the way"
-            transport="Metro Line 10, Shanghai Library Station"
-          />
-          <AttractionCard
-            name="Yu Garden"
-            nameCn="豫园"
+            name="Flower & Bird Market"
+            nameCn="花鸟市场"
             time="1.5 hours"
-            price="¥30"
-            tip="Entry ¥30, grab Nanxiang soup dumplings nearby"
-            transport="Metro Line 10, Yu Garden Station"
+            price="Free"
+            tip="Kunming is China's flower capital — buy fresh blooms for pocket change. Open every day"
+            transport="Metro Line 2, Jiaosanqiao Station"
+          />
+          <AttractionCard
+            name="Yuantong Temple"
+            nameCn="圆通寺"
+            time="1 hour"
+            price="¥6"
+            tip="The oldest Buddhist temple in Kunming. The carp pond in the courtyard is a peaceful spot"
+            transport="Metro Line 2, Jiaosanqiao Station + short walk"
+          />
+          <AttractionCard
+            name="Dongchuan Red Land"
+            nameCn="东川红土地"
+            time="Full day"
+            price="Free"
+            tip="Best photography in November when the red soil contrasts with golden crops. Hire a driver for the day"
+            transport="Bus from Kunming North (4h, ¥80) or rent a car"
           />
         </div>
       </section>
@@ -73,10 +73,10 @@ export default function ShanghaiPage() {
       <section className="mb-12">
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-Try Food</h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <FoodCard name="Soup Dumplings (Xiaolongbao)" nameCn="小笼包" place="Nanxiang Steamed Bun Restaurant / Jia Jia Tang Bao" price="¥15-30" rating="★★★★★" />
-          <FoodCard name="Shanghai-Style Cuisine" nameCn="本帮菜" place="Lu Bo Lang / Lao Ji Shi" price="¥80-150/person" rating="★★★★☆" />
-          <FoodCard name="Pan-Fried Pork Buns (Shengjianbao)" nameCn="生煎包" place="Yang's Fried Dumplings" price="¥8-12" rating="★★★★★" />
-          <FoodCard name="Scallion Oil Noodles" nameCn="葱油拌面" place="Old Local Noodle House" price="¥15-25" rating="★★★★☆" />
+          <FoodCard name="Crossing Bridge Noodles" nameCn="过桥米线" place="Jian Xing Yuan / Noodle King" price="¥20-50" rating="★★★★★" />
+          <FoodCard name="Steam Pot Chicken" nameCn="汽锅鸡" place="Yunnan Mei Shi Ren Jia" price="¥50-80" rating="★★★★★" />
+          <FoodCard name="Flower Cake" nameCn="鲜花饼" place="Panxianglou Bakery" price="¥5-10" rating="★★★★☆" />
+          <FoodCard name="Erkuai (Rice Cakes)" nameCn="饵块" place="Street Food Stalls near Flower Market" price="¥8-15" rating="★★★★☆" />
         </div>
       </section>
 
@@ -90,10 +90,9 @@ export default function ShanghaiPage() {
               <h3 className="text-sm font-semibold">Getting Around</h3>
             </div>
             <ul className="space-y-2 text-sm text-stone">
-              <li>● Metro covers all major attractions — use Alipay transit card</li>
-              <li>● Didi (ride-hailing) from ¥14</li>
-              <li>● Floating on the Huangpu Ferry is a classic Shanghai experience</li>
-              <li>● Bike share: Meituan / HelloBike — scan to ride anywhere</li>
+              <li>● Metro lines 1-6 cover the city. Alipay transit QR works everywhere</li>
+              <li>● Kunming's climate is perfect for cycling — use HelloBike or Meituan bike share</li>
+              <li>● Taxis are affordable — flagfall ¥8 for first 3km</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-celadon/10 bg-celadon/5 p-5">
@@ -102,10 +101,10 @@ export default function ShanghaiPage() {
               <h3 className="text-sm font-semibold">Intercity Travel</h3>
             </div>
             <ul className="space-y-2 text-sm text-stone">
-              <li>● To Beijing: HSR 4.5h ¥558</li>
-              <li>● To Nanjing: HSR 1h ¥134</li>
-              <li>● To Hangzhou: HSR 1h ¥73</li>
-              <li>● To Chengdu: HSR 11h or flight 3h</li>
+              <li>● To Dali: HSR 2h ¥145</li>
+              <li>● To Lijiang: HSR 3.5h ¥220</li>
+              <li>● To Guilin: HSR 4.5h ¥345</li>
+              <li>● To Chengdu: HSR 5.5h ¥488</li>
             </ul>
           </div>
         </div>
@@ -116,9 +115,9 @@ export default function ShanghaiPage() {
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Where to Stay</h2>
         <div className="grid gap-3 sm:grid-cols-3">
           {[
-            { area: "The Bund / Lujiazui Area", best: "Best for Luxury Views", desc: "Top-tier hotels with skyline views. Close to the Bund and Pudong.", icon: "🌉" },
-            { area: "French Concession", best: "Best for Character", desc: "Tree-lined streets, boutique hotels, art deco architecture, great cafés.", icon: "🌳" },
-            { area: "Jing'an / Nanjing Rd", best: "Best for Shopping", desc: "Central location with extensive shopping and dining options.", icon: "🛍️" },
+            { area: "Green Lake / City Center", best: "Best for Tourists", desc: "Central location near Yuantong Temple, Green Lake Park, and the Flower Market.", icon: "🌊" },
+            { area: "Dianchi Lake Area", best: "Best for Scenery", desc: "Lakeside resorts with mountain views. Further from the center but very relaxing.", icon: "🏔️" },
+            { area: "Kunming South Station Area", best: "Best for Travelers", desc: "Convenient for HSR connections. Modern area with new hotels and good metro access.", icon: "🚄" },
           ].map((a) => (
             <div key={a.area} className="rounded-xl border border-black/5 bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-soft">
               <span className="text-lg">{a.icon}</span>
@@ -138,7 +137,7 @@ function AttractionCard({ name, nameCn, time, price, tip, transport, book }: {
 }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-card">
-      <div className="flex items-center justify-between bg-gradient-to-r from-blue-100 to-blue-50 px-5 py-3">
+      <div className="flex items-center justify-between bg-gradient-to-r from-pink-100 to-pink-50 px-5 py-3">
         <div className="flex items-center gap-2">
           <span className="rounded bg-white/80 px-2.5 py-0.5 text-xs font-medium text-ink shadow-sm">⏱️ {time}</span>
         </div>
@@ -169,7 +168,7 @@ function FoodCard({ name, nameCn, place, price, rating }: {
   name: string; nameCn: string; place: string; price: string; rating: string;
 }) {
   return (
-    <div className="rounded-xl border-l-4 border-blue-300 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft">
+    <div className="rounded-xl border-l-4 border-pink-300 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft">
       <div className="flex items-start justify-between">
         <div>
           <h3 className="text-sm font-medium">{name}</h3>

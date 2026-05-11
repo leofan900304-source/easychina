@@ -323,6 +323,33 @@ export default function PlanPage() {
           <h2 className="text-2xl font-[450]">What do you love?</h2>
           <p className="text-sm text-stone">Choose up to 3 preferences</p>
 
+          {/* Quick Tags — Gemini suggestion */}
+          <div className="flex flex-wrap gap-2">
+            {[
+              { id: "food", label: "#Foodie 🍜" },
+              { id: "history", label: "#Historian 🏛️" },
+              { id: "nature", label: "#NatureLover ⛰️" },
+              { id: "urban", label: "#CityExplorer 🌃" },
+              { id: "tech", label: "#TechGeek 🔬" },
+              { id: "culture", label: "#CultureSeeker 🎭" },
+              { id: "relax", label: "#ChillVibes ♨️" },
+              { id: "adventure", label: "#Adventurer 🧗" },
+              { id: "budget", label: "#BudgetTraveler 💰" },
+            ].map((tag) => (
+              <button
+                key={tag.id}
+                onClick={() => togglePreference(tag.id)}
+                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-all ${
+                  form.preferences.includes(tag.id)
+                    ? "border-celadon bg-celadon/10 text-celadon"
+                    : "border-black/5 bg-white/40 text-stone hover:border-black/10 hover:bg-white/60"
+                }`}
+              >
+                {tag.label}
+              </button>
+            ))}
+          </div>
+
           <div className="grid gap-3 sm:grid-cols-2">
             {preferenceOptions.map((opt) => {
               const selected = form.preferences.includes(opt.id);

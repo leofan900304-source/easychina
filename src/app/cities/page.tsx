@@ -29,31 +29,23 @@ export default function CitiesPage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-12 md:py-20">
       <div className="mb-10">
-        <span className="text-xs font-semibold tracking-[3px] text-stone uppercase">
-          — Explore
-        </span>
-        <h1 className="mt-3 text-3xl font-[450] tracking-tight">
-          China's Best Cities
-        </h1>
+        <span className="text-xs font-semibold tracking-[3px] text-stone uppercase">— Explore</span>
+        <h1 className="mt-3 text-3xl font-[450] tracking-tight">China&apos;s Best Cities</h1>
         <p className="mt-3 max-w-lg text-sm text-stone">
-          Each city has its own personality. Browse to find your perfect
-          match, then add them to your personalized itinerary.
+          Each city has its own personality. Browse to find your perfect match, then add them to your personalized itinerary.
         </p>
       </div>
 
-      {/* 筛选器 */}
+      {/* Filters */}
       <div className="mb-8 flex flex-wrap gap-2">
         {preferenceFilters.map((filter) => (
-          <button
-            key={filter}
-            className="rounded-full border border-black/5 bg-surface-card px-4 py-1.5 text-xs font-medium text-stone transition-all hover:border-celadon/30 hover:text-celadon"
-          >
+          <button key={filter} className="rounded-full border border-black/5 bg-surface-card px-4 py-1.5 text-xs font-medium text-stone transition-all hover:border-celadon/30 hover:text-celadon">
             {filter}
           </button>
         ))}
       </div>
 
-      {/* 城市网格 */}
+      {/* City Grid — Original style */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {cities.map((city) => (
           <Link
@@ -63,18 +55,12 @@ export default function CitiesPage() {
           >
             <div className="flex items-center justify-between">
               <span className="text-xl font-medium">{city.name}</span>
-              <ArrowRight
-                size={18}
-                className="text-stone/30 transition-all group-hover:translate-x-1 group-hover:text-celadon"
-              />
+              <ArrowRight size={18} className="text-stone/30 transition-all group-hover:translate-x-1 group-hover:text-celadon" />
             </div>
             <p className="mt-1 text-sm text-stone">{city.tag}</p>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {city.type.map((t) => (
-                <span
-                  key={t}
-                  className="inline-block rounded-full bg-white/50 px-2.5 py-0.5 text-[11px] text-stone"
-                >
+                <span key={t} className="inline-block rounded-full bg-white/50 px-2.5 py-0.5 text-[11px] text-stone">
                   {t}
                 </span>
               ))}

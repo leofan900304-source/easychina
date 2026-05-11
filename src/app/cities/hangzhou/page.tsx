@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function ShanghaiPage() {
+export default function HangzhouPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-8 md:py-16">
       <Link href="/cities" className="mb-6 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink">
@@ -13,10 +13,10 @@ export default function ShanghaiPage() {
 
       {/* City Header — Original style */}
       <div className="mb-10">
-        <h1 className="text-4xl font-[450] tracking-tight">Shanghai</h1>
-        <p className="mt-2 text-lg text-stone">🌃 The Pearl of the Orient, City of Endless Energy</p>
+        <h1 className="text-4xl font-[450] tracking-tight">Hangzhou</h1>
+        <p className="mt-2 text-lg text-stone">🌊 Paradise on Earth, West Lake &amp; Silk Dreams</p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {["Modern Metropolis ★★★★★", "Food Scene ★★★★☆", "Tech & Innovation ★★★★☆"].map((t) => (
+          {["Natural Scenery ★★★★★", "Tea Culture ★★★★☆", "History & Culture ★★★★☆"].map((t) => (
             <span key={t} className="rounded-full bg-celadon/10 px-3 py-1 text-xs text-celadon">{t}</span>
           ))}
         </div>
@@ -27,44 +27,44 @@ export default function ShanghaiPage() {
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-See Attractions</h2>
         <div className="space-y-5">
           <AttractionCard
-            name="The Bund"
-            nameCn="外滩"
-            time="1-2 hours"
+            name="West Lake"
+            nameCn="西湖"
+            time="3-4 hours"
             price="Free"
-            tip="Best at dusk when the lights come on — free, no reservation needed"
-            transport="Metro Line 2/10, East Nanjing Road Station"
+            tip="Rent a bike and cycle the 10km lake loop. The Broken Bridge and Leifeng Pagoda are unmissable"
+            transport="Metro Line 1, Ding'an Road or Longxiangqiao Station"
           />
           <AttractionCard
-            name="Shanghai Museum"
-            nameCn="上海博物馆"
-            time="2-3 hours"
-            price="Free"
-            tip="Free entry, book via their WeChat mini-program 3 days ahead"
-            transport="Metro Line 1/8, People's Square Station"
-          />
-          <AttractionCard
-            name="Oriental Pearl / Lujiazui"
-            nameCn="东方明珠"
+            name="Lingyin Temple"
+            nameCn="灵隐寺"
             time="2 hours"
-            price="¥199"
-            tip="Tower entry ¥199, book via Trip.com"
-            transport="Metro Line 2, Lujiazui Station"
+            price="¥45"
+            tip="The flying peak grottoes with Buddhist carvings are just as impressive as the temple itself"
+            transport="Bus 7 or 407 from city center"
           />
           <AttractionCard
-            name="Wukang Road"
-            nameCn="武康路"
-            time="1-2 hours"
+            name="Longjing Tea Village"
+            nameCn="龙井村"
+            time="2 hours"
             price="Free"
-            tip="Perfect for a stroll with great photo spots and cafés along the way"
-            transport="Metro Line 10, Shanghai Library Station"
+            tip="Visit a tea plantation for a tasting. Buy Longjing tea from the farms, not tourist shops"
+            transport="Bus 27 from West Lake area (30min)"
           />
           <AttractionCard
-            name="Yu Garden"
-            nameCn="豫园"
+            name="Hefang Street"
+            nameCn="河坊街"
             time="1.5 hours"
-            price="¥30"
-            tip="Entry ¥30, grab Nanxiang soup dumplings nearby"
-            transport="Metro Line 10, Yu Garden Station"
+            price="Free"
+            tip="Traditional street with local snacks and handicrafts. Try the stinky tofu — it's surprisingly good"
+            transport="Metro Line 1, Ding'an Road Station"
+          />
+          <AttractionCard
+            name="Xixi Wetland Park"
+            nameCn="西溪湿地"
+            time="3 hours"
+            price="¥80"
+            tip="Take the boat tour through the waterways. Quiet and serene — a nice break from the city"
+            transport="Metro Line 3, Xixi Wetland Station"
           />
         </div>
       </section>
@@ -73,10 +73,10 @@ export default function ShanghaiPage() {
       <section className="mb-12">
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-Try Food</h2>
         <div className="grid gap-4 sm:grid-cols-2">
-          <FoodCard name="Soup Dumplings (Xiaolongbao)" nameCn="小笼包" place="Nanxiang Steamed Bun Restaurant / Jia Jia Tang Bao" price="¥15-30" rating="★★★★★" />
-          <FoodCard name="Shanghai-Style Cuisine" nameCn="本帮菜" place="Lu Bo Lang / Lao Ji Shi" price="¥80-150/person" rating="★★★★☆" />
-          <FoodCard name="Pan-Fried Pork Buns (Shengjianbao)" nameCn="生煎包" place="Yang's Fried Dumplings" price="¥8-12" rating="★★★★★" />
-          <FoodCard name="Scallion Oil Noodles" nameCn="葱油拌面" place="Old Local Noodle House" price="¥15-25" rating="★★★★☆" />
+          <FoodCard name="Dongpo Pork" nameCn="东坡肉" place="Lou Wai Lou Restaurant" price="¥60-100" rating="★★★★★" />
+          <FoodCard name="Longjing Shrimp" nameCn="龙井虾仁" place="Grandma's House / Lou Wai Lou" price="¥80-120" rating="★★★★★" />
+          <FoodCard name="Beggar's Chicken" nameCn="叫花鸡" place="Hangzhou Restaurant" price="¥70-100" rating="★★★★☆" />
+          <FoodCard name="West Lake Vinegar Fish" nameCn="西湖醋鱼" place="Lou Wai Lou / Zhi Wei Guan" price="¥60-90" rating="★★★★☆" />
         </div>
       </section>
 
@@ -90,10 +90,9 @@ export default function ShanghaiPage() {
               <h3 className="text-sm font-semibold">Getting Around</h3>
             </div>
             <ul className="space-y-2 text-sm text-stone">
-              <li>● Metro covers all major attractions — use Alipay transit card</li>
-              <li>● Didi (ride-hailing) from ¥14</li>
-              <li>● Floating on the Huangpu Ferry is a classic Shanghai experience</li>
-              <li>● Bike share: Meituan / HelloBike — scan to ride anywhere</li>
+              <li>● 5 metro lines connect the city. Line 1 goes right to West Lake and the HSR station</li>
+              <li>● Public bikes are everywhere — first 60 minutes free with a deposit</li>
+              <li>● West Lake has a sightseeing bus (¥5 per stop) that goes around the lake</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-celadon/10 bg-celadon/5 p-5">
@@ -102,10 +101,10 @@ export default function ShanghaiPage() {
               <h3 className="text-sm font-semibold">Intercity Travel</h3>
             </div>
             <ul className="space-y-2 text-sm text-stone">
-              <li>● To Beijing: HSR 4.5h ¥558</li>
-              <li>● To Nanjing: HSR 1h ¥134</li>
-              <li>● To Hangzhou: HSR 1h ¥73</li>
-              <li>● To Chengdu: HSR 11h or flight 3h</li>
+              <li>● To Shanghai: HSR 1h ¥73</li>
+              <li>● To Nanjing: HSR 1.5h ¥119</li>
+              <li>● To Beijing: HSR 4.5h ¥538</li>
+              <li>● To Huangshan: HSR 1.5h ¥120</li>
             </ul>
           </div>
         </div>
@@ -116,9 +115,9 @@ export default function ShanghaiPage() {
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Where to Stay</h2>
         <div className="grid gap-3 sm:grid-cols-3">
           {[
-            { area: "The Bund / Lujiazui Area", best: "Best for Luxury Views", desc: "Top-tier hotels with skyline views. Close to the Bund and Pudong.", icon: "🌉" },
-            { area: "French Concession", best: "Best for Character", desc: "Tree-lined streets, boutique hotels, art deco architecture, great cafés.", icon: "🌳" },
-            { area: "Jing'an / Nanjing Rd", best: "Best for Shopping", desc: "Central location with extensive shopping and dining options.", icon: "🛍️" },
+            { area: "West Lake Area", best: "Best for Scenery", desc: "Top choice for first-time visitors. Wake up to lake views. Highest priced.", icon: "🏞️" },
+            { area: "Wulin Square / Central", best: "Best for Shopping", desc: "Hangzhou's CBD with luxury malls, great metro access, and diverse dining.", icon: "🛍️" },
+            { area: "Longjing / Hangzhou South", best: "Best for Peace & Tea", desc: "Stay among the tea plantations. Quiet, scenic, and perfect for a retreat.", icon: "🍵" },
           ].map((a) => (
             <div key={a.area} className="rounded-xl border border-black/5 bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-soft">
               <span className="text-lg">{a.icon}</span>
@@ -138,7 +137,7 @@ function AttractionCard({ name, nameCn, time, price, tip, transport, book }: {
 }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-card">
-      <div className="flex items-center justify-between bg-gradient-to-r from-blue-100 to-blue-50 px-5 py-3">
+      <div className="flex items-center justify-between bg-gradient-to-r from-emerald-100 to-emerald-50 px-5 py-3">
         <div className="flex items-center gap-2">
           <span className="rounded bg-white/80 px-2.5 py-0.5 text-xs font-medium text-ink shadow-sm">⏱️ {time}</span>
         </div>
@@ -169,7 +168,7 @@ function FoodCard({ name, nameCn, place, price, rating }: {
   name: string; nameCn: string; place: string; price: string; rating: string;
 }) {
   return (
-    <div className="rounded-xl border-l-4 border-blue-300 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft">
+    <div className="rounded-xl border-l-4 border-emerald-300 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft">
       <div className="flex items-start justify-between">
         <div>
           <h3 className="text-sm font-medium">{name}</h3>

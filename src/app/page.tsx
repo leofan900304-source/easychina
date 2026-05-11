@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, Shield, Map } from "lucide-react";
 
 const popularCities = [
-  { name: "Beijing", tag: "🏛️ Ancient Capital & Modern Hub", type: "History & Culture", bg: "bg-[#E8E3DC]" },
-  { name: "Shanghai", tag: "🌃 Vibrant Metropolis", type: "Urban & Modern", bg: "bg-[#E3E8E4]" },
-  { name: "Xi'an", tag: "🏯 Home of the Terracotta Warriors", type: "History & Culture", bg: "bg-[#E8E0D8]" },
-  { name: "Chengdu", tag: "🐼 Panda Sanctuary & Food Paradise", type: "Food & Nature", bg: "bg-[#E0E8E0]" },
-  { name: "Chongqing", tag: "🏔️ 8D Futuristic Mountain City", type: "Food & Urban", bg: "bg-[#E8E0E0]" },
-  { name: "Guilin", tag: "⛰️ Legendary Karst Landscapes", type: "Nature & Scenery", bg: "bg-[#E0E8E6]" },
+  { name: "Beijing", slug: "beijing", tag: "🏛️ Ancient Capital & Modern Hub", type: "History & Culture", bg: "bg-[#E8E3DC]" },
+  { name: "Shanghai", slug: "shanghai", tag: "🌃 Vibrant Metropolis", type: "Urban & Modern", bg: "bg-[#E3E8E4]" },
+  { name: "Xi'an", slug: "xian", tag: "🏯 Home of the Terracotta Warriors", type: "History & Culture", bg: "bg-[#E8E0D8]" },
+  { name: "Chengdu", slug: "chengdu", tag: "🐼 Panda Sanctuary & Food Paradise", type: "Food & Nature", bg: "bg-[#E0E8E0]" },
+  { name: "Chongqing", slug: "chongqing", tag: "🏔️ 8D Futuristic Mountain City", type: "Food & Urban", bg: "bg-[#E8E0E0]" },
+  { name: "Guilin", slug: "guilin", tag: "⛰️ Legendary Karst Landscapes", type: "Nature & Scenery", bg: "bg-[#E0E8E6]" },
 ];
 
 export default function Home() {
@@ -127,7 +127,7 @@ export default function Home() {
             {popularCities.map((city) => (
               <Link
                 key={city.name}
-                href={`/cities/${city.name}`}
+                href={`/cities/${city.slug}`}
                 className={`${city.bg} city-card group`}
               >
                 <div className="flex items-center justify-between">
