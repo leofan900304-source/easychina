@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(180,150,120,0.03) 2px, rgba(180,150,120,0.03) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(180,150,120,0.02) 3px, rgba(180,150,120,0.02) 6px);
+  }
+
+  ::selection {
+    background-color: rgba(92, 122, 110, 0.25);
+    color: #2C2C2C;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-celadon px-6 py-3
+           text-paper font-medium shadow-lg shadow-celadon/20
+           transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-celadon/30
+           focus:outline-none focus:ring-2 focus:ring-celadon/40;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-full border border-stone/20
+           bg-white/50 px-6 py-3 text-ink font-medium backdrop-blur-sm
+           transition-all duration-200 hover:bg-white/80 hover:border-stone/30
+           focus:outline-none focus:ring-2 focus:ring-celadon/20;
+  }
+
+  .city-card {
+    @apply rounded-xl border border-black/5 p-5 transition-all duration-200
+           hover:-translate-y-1 hover:shadow-card cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-silk {
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(180,150,120,0.03) 2px, rgba(180,150,120,0.03) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(180,150,120,0.02) 3px, rgba(180,150,120,0.02) 6px);
+  }
+
+  .ink-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #8B7D6B 0%, #A8B5A0 50%, #5C7A6E 100%);
+  }
+}
