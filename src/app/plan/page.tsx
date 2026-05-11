@@ -87,13 +87,25 @@ export default function PlanPage() {
     }));
   };
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     setIsGenerating(true);
-    // Simulated AI generation delay
-    setTimeout(() => {
-      setIsGenerating(false);
+    try {
+      const res = await fetch("/api/generate-itinerary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("API error");
+      const data = await res.json();
+      // Store the result in sessionStorage and redirect
+      sessionStorage.setItem("itinerary", JSON.stringify(data));
+      router.push("/plan/result/custom");
+    } catch {
+      // Fallback: use demo data if API fails
       router.push("/plan/result/demo");
-    }, 3000);
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const canProceed = () => {
