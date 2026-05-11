@@ -2,13 +2,13 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 const cityData: Record<string, { name: string; tag: string; types: string[] }> = {
-  "guangzhou": { name: "广州", tag: "🥟 美食之都，商贸中心", types: ["美食 ★★★★★", "摩登都市 ★★★★☆"] },
-  "xian": { name: "西安", tag: "🏯 十三朝古都", types: ["历史文化 ★★★★★", "美食 ★★★★☆"] },
-  "chengdu": { name: "成都", tag: "🐼 熊猫故乡，慢生活", types: ["美食 ★★★★★", "休闲 ★★★★☆", "自然 ★★★☆☆"] },
-  "guilin": { name: "桂林", tag: "⛰️ 山水甲天下", types: ["自然风光 ★★★★★", "休闲 ★★★★☆"] },
-  "lijiang": { name: "丽江", tag: "🏘️ 古城漫步，世外桃源", types: ["民俗 ★★★★★", "自然 ★★★★☆", "休闲 ★★★★☆"] },
-  "hangzhou": { name: "杭州", tag: "🌊 江南水乡，诗意栖居", types: ["自然 ★★★★★", "休闲 ★★★★☆", "历史文化 ★★★☆☆"] },
-  "kunming": { name: "昆明", tag: "🌸 春城花都，七彩云南", types: ["自然风光 ★★★★★", "民俗 ★★★★☆", "休闲 ★★★★☆"] },
+  "guangzhou": { name: "Guangzhou", tag: "🥟 Food capital, trade hub", types: ["Food ★★★★★", "Modern City ★★★★☆"] },
+  "xian": { name: "Xi'an", tag: "🏯 Ancient capital of 13 dynasties", types: ["History & Culture ★★★★★", "Food ★★★★☆"] },
+  "chengdu": { name: "Chengdu", tag: "🐼 Panda homeland, slow living", types: ["Food ★★★★★", "Leisure ★★★★☆", "Nature ★★★☆☆"] },
+  "guilin": { name: "Guilin", tag: "⛰️ Scenery like no other", types: ["Natural Beauty ★★★★★", "Leisure ★★★★☆"] },
+  "lijiang": { name: "Lijiang", tag: "🏘️ Ancient town, idyllic escape", types: ["Folklore ★★★★★", "Nature ★★★★☆", "Leisure ★★★★☆"] },
+  "hangzhou": { name: "Hangzhou", tag: "🌊 Jiangnan water town, poetic living", types: ["Nature ★★★★★", "Leisure ★★★★☆", "History & Culture ★★★☆☆"] },
+  "kunming": { name: "Kunming", tag: "🌸 Spring city, colorful Yunnan", types: ["Natural Beauty ★★★★★", "Folklore ★★★★☆", "Leisure ★★★★☆"] },
 };
 
 export default function CityPage({ params }: { params: { slug: string } }) {
@@ -28,7 +28,7 @@ export default function CityPage({ params }: { params: { slug: string } }) {
         ))}
       </div>
       <div className="mt-12 rounded-2xl border border-black/5 bg-surface-card p-8 text-center">
-        <p className="text-sm text-stone">Detailed guide for {city.name} coming soon.</p>
+        <p className="text-sm text-stone">Detailed guide for {city.name} — coming soon.</p>
         <Link href="/plan" className="btn-primary mt-6 inline-flex text-sm">
           Plan your trip to {city.name}
         </Link>

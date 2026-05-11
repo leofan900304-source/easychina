@@ -2,27 +2,27 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const cities = [
-  { name: "北京", slug: "beijing", tag: "🏛️ 千年古都，现代之心", type: ["历史文化", "摩登都市", "美食"], bg: "bg-[#E8E3DC]" },
-  { name: "上海", slug: "shanghai", tag: "🌃 东方明珠，魅力魔都", type: ["摩登都市", "美食", "科技"], bg: "bg-[#E3E8E4]" },
-  { name: "广州", slug: "guangzhou", tag: "🥟 美食之都，商贸中心", type: ["美食", "摩登都市"], bg: "bg-[#E8E8E0]" },
-  { name: "西安", slug: "xian", tag: "🏯 十三朝古都", type: ["历史文化", "美食"], bg: "bg-[#E8E0D8]" },
-  { name: "成都", slug: "chengdu", tag: "🐼 熊猫故乡，慢生活", type: ["美食", "休闲", "自然"], bg: "bg-[#E0E8E0]" },
-  { name: "重庆", slug: "chongqing", tag: "🏔️ 8D魔幻山城", type: ["美食", "摩登都市", "自然"], bg: "bg-[#E8E0E0]" },
-  { name: "桂林", slug: "guilin", tag: "⛰️ 山水甲天下", type: ["自然风光", "休闲"], bg: "bg-[#E0E8E6]" },
-  { name: "丽江", slug: "lijiang", tag: "🏘️ 古城漫步，世外桃源", type: ["民俗", "自然", "休闲"], bg: "bg-[#E8E8E8]" },
-  { name: "杭州", slug: "hangzhou", tag: "🌊 江南水乡，诗意栖居", type: ["自然", "休闲", "历史文化"], bg: "bg-[#E0E8E4]" },
-  { name: "昆明", slug: "kunming", tag: "🌸 春城花都，七彩云南", type: ["自然风光", "民俗", "休闲"], bg: "bg-[#E8E4E0]" },
+  { name: "Beijing", slug: "beijing", tag: "🏛️ Ancient Capital, Modern Heartbeat", type: ["History & Culture", "Urban", "Food"], bg: "bg-[#E8E3DC]" },
+  { name: "Shanghai", slug: "shanghai", tag: "🌃 The Pearl of the Orient", type: ["Urban", "Food", "Technology"], bg: "bg-[#E3E8E4]" },
+  { name: "Guangzhou", slug: "guangzhou", tag: "🥟 Cantonese Food Capital", type: ["Food", "Urban"], bg: "bg-[#E8E8E0]" },
+  { name: "Xi'an", slug: "xian", tag: "🏯 Ancient Capital of 13 Dynasties", type: ["History & Culture", "Food"], bg: "bg-[#E8E0D8]" },
+  { name: "Chengdu", slug: "chengdu", tag: "🐼 Panda Sanctuary & Slow Living", type: ["Food", "Leisure", "Nature"], bg: "bg-[#E0E8E0]" },
+  { name: "Chongqing", slug: "chongqing", tag: "🏔️ 8D Futuristic Mountain City", type: ["Food", "Urban", "Nature"], bg: "bg-[#E8E0E0]" },
+  { name: "Guilin", slug: "guilin", tag: "⛰️ Legendary Karst Landscapes", type: ["Nature & Scenery", "Leisure"], bg: "bg-[#E0E8E6]" },
+  { name: "Lijiang", slug: "lijiang", tag: "🏘️ Ancient Town & Hidden Paradise", type: ["Culture", "Nature", "Leisure"], bg: "bg-[#E8E8E8]" },
+  { name: "Hangzhou", slug: "hangzhou", tag: "🌊 Picturesque Water Town", type: ["Nature", "Leisure", "History & Culture"], bg: "bg-[#E0E8E4]" },
+  { name: "Kunming", slug: "kunming", tag: "🌸 Spring City, Gateway to Yunnan", type: ["Nature & Scenery", "Culture", "Leisure"], bg: "bg-[#E8E4E0]" },
 ];
 
 const preferenceFilters = [
-  "全部",
-  "历史文化",
-  "自然风光",
-  "摩登都市",
-  "美食",
-  "民俗",
-  "休闲",
-  "科技",
+  "All",
+  "History & Culture",
+  "Nature & Scenery",
+  "Urban",
+  "Food",
+  "Culture",
+  "Leisure",
+  "Technology",
 ];
 
 export default function CitiesPage() {

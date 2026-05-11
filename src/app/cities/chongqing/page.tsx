@@ -11,29 +11,30 @@ export default function ChongqingPage() {
 
       {/* City Header */}
       <div className="mb-10">
-        <h1 className="text-4xl font-[450] tracking-tight">重庆</h1>
-        <p className="mt-2 text-lg text-stone">🏔️ 8D魔幻山城</p>
+        <h1 className="text-4xl font-[450] tracking-tight">Chongqing</h1>
+        <p className="mt-2 text-lg text-stone">🏔️ The 8D Cyberpunk Mountain City</p>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-stone/70 italic">
-          &ldquo;一座建在山上的城市，轻轨穿楼过，火锅满街香。
-          没有东西南北，只有上下左右。来了就知道什么叫魔幻现实主义。&rdquo;
+          &ldquo;A city built on mountains — the monorail cuts right through apartment buildings,
+          and the scent of hotpot fills every street. There&rsquo;s no north or south, only up and down.
+          Come here and you&rsquo;ll understand what magical realism really means.&rdquo;
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          {["美食探索 ★★★★★", "摩登都市 ★★★★☆", "自然风光 ★★★☆☆"].map((t) => (
+          {["Food Paradise ★★★★★", "Modern Metropolis ★★★★☆", "Natural Scenery ★★★☆☆"].map((t) => (
             <span key={t} className="rounded-full bg-celadon/10 px-3 py-1 text-xs text-celadon">{t}</span>
           ))}
         </div>
       </div>
 
-      {/* 必游景点 */}
+      {/* Must-See Attractions */}
       <section className="mb-12">
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-See Attractions</h2>
         <div className="space-y-4">
           {[
-            { name: "洪崖洞", time: "2-3小时", tip: "傍晚+夜景最美。从1楼进电梯到11楼出去还是马路——这就是重庆", transport: "地铁1号线/6号线 小什字站" },
-            { name: "长江索道", time: "15分钟", tip: "建议从南向北坐，视野更好。单程¥20", transport: "地铁6号线 上新街站" },
-            { name: "磁器口古镇", time: "2-3小时", tip: "周末人很多，建议工作日去", transport: "地铁1号线 磁器口站" },
-            { name: "解放碑 / 八一好吃街", time: "1-2小时", tip: "周边巷子里有很多地道老火锅", transport: "地铁2号线 临江门站" },
-            { name: "武隆天生三桥", time: "全天", tip: "变形金刚4取景地，可在美团/Trip.com订票 ¥125", transport: "市区→武隆 大巴2.5h 或 火车2h" },
+            { name: "Hongya Cave", time: "2-3 hours", tip: "Go at dusk for the illuminated skyline. Take the elevator from Floor 1 to Floor 11 — you'll step out onto a street again. That's Chongqing.", transport: "Metro Line 1/6, Xiaoshizi Station" },
+            { name: "Yangtze River Cableway", time: "15 min", tip: "Ride south-to-north for the best views. Single trip ¥20", transport: "Metro Line 6, Shangxinjie Station" },
+            { name: "Ciqikou Ancient Town", time: "2-3 hours", tip: "Gets packed on weekends — go on a weekday if you can", transport: "Metro Line 1, Ciqikou Station" },
+            { name: "Jiefangbei / Bayi Food Street", time: "1-2 hours", tip: "The surrounding alleyways hide plenty of authentic old-school hotpot joints", transport: "Metro Line 2, Linjiangmen Station" },
+            { name: "Wulong Three Natural Bridges", time: "Full day", tip: "Filming location for Transformers 4. Book tickets on Meituan or Trip.com ¥125", transport: "City center → Wulong: 2.5h by bus or 2h by train" },
           ].map((spot) => (
             <div key={spot.name} className="rounded-2xl border border-black/5 bg-surface-card p-5">
               <h3 className="font-medium">{spot.name}</h3>
@@ -47,15 +48,15 @@ export default function ChongqingPage() {
         </div>
       </section>
 
-      {/* 美食 */}
+      {/* Food */}
       <section className="mb-12">
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-Try Food</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {[
-            { name: "重庆火锅", place: "佩姐老火锅 / 周师兄大刀腰片", tip: "不能吃辣请提前说'微微辣'" },
-            { name: "重庆小面", place: "随便一家路边摊都好吃", tip: "早餐首选" },
-            { name: "酸辣粉", place: "好又来酸辣粉", tip: "解放碑附近有好又来的店" },
-            { name: "江湖菜", place: "杨记隆府", tip: "川菜系，重口味爱好者的天堂" },
+            { name: "Chongqing Hotpot", place: "Peijie Old Hotpot / Zhou Shixiong Knife-Cut Tripe", tip: "If you can't handle spice, be sure to say 'wei wei la' (just a tiny hint of heat) up front" },
+            { name: "Chongqing Noodles (Xiaomian)", place: "Any street stall is amazing", tip: "The ultimate breakfast" },
+            { name: "Hot & Sour Rice Noodles (Suanla Fen)", place: "Hao You Lai", tip: "There's a Hao You Lai shop near Jiefangbei" },
+            { name: "Jianghu Cuisine", place: "Yang Ji Long Fu", tip: "Sichuan-style cooking — a paradise for bold flavor lovers" },
           ].map((food) => (
             <div key={food.name} className="rounded-xl border border-black/5 bg-white/40 p-4">
               <h3 className="text-sm font-medium">{food.name}</h3>
@@ -66,39 +67,39 @@ export default function ChongqingPage() {
         </div>
       </section>
 
-      {/* 交通 */}
+      {/* Transport */}
       <section className="mb-12">
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Transport</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-black/5 bg-surface-card p-5">
-            <h3 className="mb-2 text-sm font-semibold">🚇 市内交通</h3>
+            <h3 className="mb-2 text-sm font-semibold">🚇 Getting Around Town</h3>
             <ul className="space-y-1.5 text-sm text-stone">
-              <li>• 地铁非常发达，基本覆盖所有景点</li>
-              <li>• 支付宝领乘车码直接刷</li>
-              <li>• ⚠️ 山城特色：导航显示500米可能等于爬5层楼</li>
-              <li>• 建议多用地铁，少步行爬坡</li>
+              <li>• The metro is extensive and covers nearly every attraction</li>
+              <li>• Get your transit QR code on Alipay and scan to ride</li>
+              <li>• ⚠️ Mountain-city reality check: 500m on the map might mean climbing 5 flights of stairs</li>
+              <li>• Stick to the metro and save your legs for the sights</li>
             </ul>
           </div>
           <div className="rounded-2xl border border-celadon/10 bg-celadon/5 p-5">
-            <h3 className="mb-2 text-sm font-semibold">🚄 城市间交通</h3>
+            <h3 className="mb-2 text-sm font-semibold">🚄 Getting Between Cities</h3>
             <ul className="space-y-1.5 text-sm text-stone">
-              <li>• 到成都: 高铁1h ¥154</li>
-              <li>• 到西安: 高铁5h ¥330</li>
-              <li>• 到广州: 高铁7h ¥445</li>
-              <li>• 到北京: 高铁10.5h 或 飞机2.5h</li>
+              <li>• To Chengdu: 1h by high-speed rail, ¥154</li>
+              <li>• To Xi'an: 5h by high-speed rail, ¥330</li>
+              <li>• To Guangzhou: 7h by high-speed rail, ¥445</li>
+              <li>• To Beijing: 10.5h by train or 2.5h by flight</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* 住宿 */}
+      {/* Accommodation */}
       <section>
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Where to Stay</h2>
         <div className="grid gap-3 sm:grid-cols-3">
           {[
-            { area: "解放碑/洪崖洞区域", best: "游客首选", desc: "交通方便，夜景好，到各景点都近" },
-            { area: "观音桥区域", best: "本地生活", desc: "本地人生活区，美食多，价格适中" },
-            { area: "南滨路区域", best: "江景观赏", desc: "看江景，环境好，稍微偏一点" },
+            { area: "Jiefangbei / Hongya Cave Area", best: "Best for Tourists", desc: "Convenient transport, stunning night views, close to all major sights" },
+            { area: "Guanyin Bridge Area", best: "Local Life", desc: "A real local neighborhood with great food and moderate prices" },
+            { area: "Nanbin Road Area", best: "River Views", desc: "Beautiful riverside scenery and a nicer environment, though a bit further out" },
           ].map(({ area, best, desc }) => (
             <div key={area} className="rounded-xl border border-black/5 bg-surface-card p-4">
               <h3 className="text-sm font-medium">{area}</h3>

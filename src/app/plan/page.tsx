@@ -4,14 +4,14 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
 
-/* ===== 步骤定义 ===== */
+/* ===== Step definitions ===== */
 type TravelPreferences = {
   entryCity: string;
   duration: number;
   budget: "budget" | "economic" | "comfortable" | "luxury";
   companions: "solo" | "couple" | "friends" | "family_kids" | "family_elderly";
   firstTime: boolean;
-  appFamiliarity: number; // 1-5
+  appFamiliarity: number; // 1–5
   preferences: string[];
   pace: "packed" | "balanced" | "relaxed";
   diet: string[];
@@ -30,21 +30,21 @@ const entryCities = [
 ];
 
 const preferenceOptions = [
-  { id: "history", label: "历史文化", emoji: "🏛️", desc: "名胜古迹、博物馆、古城" },
-  { id: "nature", label: "自然风光", emoji: "⛰️", desc: "山川、湖泊、国家公园" },
-  { id: "urban", label: "摩登都市", emoji: "🌃", desc: "天际线、购物、夜生活" },
-  { id: "food", label: "美食探索", emoji: "🍜", desc: "街头小吃、当地菜系" },
-  { id: "tech", label: "科技与创新", emoji: "🔬", desc: "科技园区、现代化设施" },
-  { id: "culture", label: "民俗体验", emoji: "🎭", desc: "少数民族文化、手工艺" },
-  { id: "relax", label: "休闲度假", emoji: "♨️", desc: "温泉、度假村、慢节奏" },
-  { id: "adventure", label: "户外探险", emoji: "🧗", desc: "徒步、骑行、极限运动" },
+  { id: "history", label: "History & Culture", emoji: "🏛️", desc: "Historic sites, museums, ancient cities" },
+  { id: "nature", label: "Nature & Scenery", emoji: "⛰️", desc: "Mountains, lakes, national parks" },
+  { id: "urban", label: "Modern City", emoji: "🌃", desc: "Skylines, shopping, nightlife" },
+  { id: "food", label: "Food Exploration", emoji: "🍜", desc: "Street food, local cuisine" },
+  { id: "tech", label: "Tech & Innovation", emoji: "🔬", desc: "Tech parks, modern facilities" },
+  { id: "culture", label: "Cultural Experiences", emoji: "🎭", desc: "Ethnic minority culture, handicrafts" },
+  { id: "relax", label: "Leisure & Relaxation", emoji: "♨️", desc: "Hot springs, resorts, slow pace" },
+  { id: "adventure", label: "Outdoor Adventure", emoji: "🧗", desc: "Hiking, cycling, extreme sports" },
 ];
 
 const dietOptions = [
-  { id: "none", label: "无限制" },
-  { id: "vegetarian", label: "素食 / Vegan" },
-  { id: "halal", label: "清真 (Halal)" },
-  { id: "no_spicy", label: "无辣" },
+  { id: "none", label: "No restrictions" },
+  { id: "vegetarian", label: "Vegetarian / Vegan" },
+  { id: "halal", label: "Halal" },
+  { id: "no_spicy", label: "No spicy" },
 ];
 
 export default function PlanPage() {
@@ -89,7 +89,7 @@ export default function PlanPage() {
 
   const handleGenerate = () => {
     setIsGenerating(true);
-    // 模拟 AI 生成延迟
+    // Simulated AI generation delay
     setTimeout(() => {
       setIsGenerating(false);
       router.push("/plan/result/demo");
@@ -102,12 +102,12 @@ export default function PlanPage() {
     return true;
   };
 
-  // 加载状态
+  // Loading state
   if (isGenerating) {
     return (
       <div className="flex min-h-[60vh] flex-col items-center justify-center px-6">
         <div className="text-center animate-fade-in">
-          {/* 加载动画 */}
+          {/* Loading animation */}
           <div className="relative mx-auto mb-8 flex h-20 w-20 items-center justify-center">
             <div className="absolute inset-0 animate-ping rounded-full bg-celadon/20" />
             <div className="absolute inset-2 rounded-full bg-celadon/30" />
@@ -133,7 +133,7 @@ export default function PlanPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-12 md:py-20">
-      {/* 步骤指示器 */}
+      {/* Step indicator */}
       <div className="mb-12">
         <div className="flex items-center justify-center gap-2">
           {[1, 2, 3].map((s) => (
@@ -166,12 +166,12 @@ export default function PlanPage() {
         </p>
       </div>
 
-      {/* Step 1: 基础信息 */}
+      {/* Step 1: Basic Info */}
       {step === 1 && (
         <div className="animate-fade-in space-y-6">
           <h2 className="text-2xl font-[450]">Where and when?</h2>
 
-          {/* 入境城市 */}
+          {/* Entry city */}
           <div>
             <label className="mb-2 block text-sm font-medium">Entry Airport</label>
             <select
@@ -188,7 +188,7 @@ export default function PlanPage() {
             </select>
           </div>
 
-          {/* 停留天数 */}
+          {/* Duration */}
           <div>
             <label className="mb-2 block text-sm font-medium">
               Duration: <span className="text-celadon">{form.duration} days</span>
@@ -207,7 +207,7 @@ export default function PlanPage() {
             </div>
           </div>
 
-          {/* 预算 */}
+          {/* Budget */}
           <div>
             <label className="mb-2 block text-sm font-medium">Budget</label>
             <div className="grid grid-cols-4 gap-2">
@@ -221,25 +221,25 @@ export default function PlanPage() {
                       : "border-black/5 bg-white/40 text-stone hover:border-black/10"
                   }`}
                 >
-                  {b === "budget" && "🎒 穷游"}
-                  {b === "economic" && "💰 经济"}
-                  {b === "comfortable" && "🌟 舒适"}
-                  {b === "luxury" && "👑 豪华"}
+                  {b === "budget" && "🎒 Budget"}
+                  {b === "economic" && "💰 Economic"}
+                  {b === "comfortable" && "🌟 Comfortable"}
+                  {b === "luxury" && "👑 Luxury"}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* 同行人 */}
+          {/* Companions */}
           <div>
             <label className="mb-2 block text-sm font-medium">Traveling with</label>
             <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
               {([
-                { value: "solo", label: "独自" },
-                { value: "couple", label: "情侣" },
-                { value: "friends", label: "朋友" },
-                { value: "family_kids", label: "家庭（有小孩）" },
-                { value: "family_elderly", label: "家庭（有老人）" },
+                { value: "solo", label: "Solo" },
+                { value: "couple", label: "Couple" },
+                { value: "friends", label: "Friends" },
+                { value: "family_kids", label: "Family (kids)" },
+                { value: "family_elderly", label: "Family (elderly)" },
               ] as const).map((opt) => (
                 <button
                   key={opt.value}
@@ -256,10 +256,10 @@ export default function PlanPage() {
             </div>
           </div>
 
-          {/* 是否首次来 + App熟悉度 */}
+          {/* First time + App familiarity */}
           <div className="flex flex-col gap-4 rounded-xl bg-white/30 p-5 sm:flex-row sm:items-center">
             <div className="flex items-center gap-3 sm:flex-1">
-              <span className="text-sm">首次来中国?</span>
+              <span className="text-sm">First time in China?</span>
               <button
                 onClick={() => update("firstTime", true)}
                 className={`rounded-lg px-4 py-1.5 text-xs font-medium transition-all ${
@@ -305,7 +305,7 @@ export default function PlanPage() {
         </div>
       )}
 
-      {/* Step 2: 旅游偏好 */}
+      {/* Step 2: Preferences */}
       {step === 2 && (
         <div className="animate-fade-in space-y-6">
           <h2 className="text-2xl font-[450]">What do you love?</h2>
@@ -331,14 +331,14 @@ export default function PlanPage() {
             })}
           </div>
 
-          {/* 行程节奏 */}
+          {/* Pace */}
           <div>
             <label className="mb-2 block text-sm font-medium">Pace</label>
             <div className="grid grid-cols-3 gap-2">
               {([
-                { value: "packed", label: "紧凑充实", desc: "每天排满" },
-                { value: "balanced", label: "适中平衡", desc: "劳逸结合" },
-                { value: "relaxed", label: "悠闲放松", desc: "慢慢逛" },
+                { value: "packed", label: "Packed", desc: "Full schedule every day" },
+                { value: "balanced", label: "Balanced", desc: "Mix of busy and relaxed" },
+                { value: "relaxed", label: "Relaxed", desc: "Take it slow" },
               ] as const).map((opt) => (
                 <button
                   key={opt.value}
@@ -358,7 +358,7 @@ export default function PlanPage() {
         </div>
       )}
 
-      {/* Step 3: 细节 */}
+      {/* Step 3: Details */}
       {step === 3 && (
         <div className="animate-fade-in space-y-6">
           <h2 className="text-2xl font-[450]">Any restrictions?</h2>
@@ -407,7 +407,7 @@ export default function PlanPage() {
         </div>
       )}
 
-      {/* 底部按钮 */}
+      {/* Bottom buttons */}
       <div className="mt-10 flex items-center justify-between">
         {step > 1 ? (
           <button

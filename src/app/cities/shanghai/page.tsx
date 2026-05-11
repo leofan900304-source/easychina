@@ -5,10 +5,10 @@ export default function ShanghaiPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-12 md:py-20">
       <Link href="/cities" className="mb-8 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink"><ArrowLeft size={14} />All Cities</Link>
-      <h1 className="text-4xl font-[450] tracking-tight">上海</h1>
-      <p className="mt-2 text-lg text-stone">🌃 东方明珠，魅力魔都</p>
+      <h1 className="text-4xl font-[450] tracking-tight">Shanghai</h1>
+      <p className="mt-2 text-lg text-stone">🌃 The Pearl of the Orient, City of Endless Energy</p>
       <div className="mt-4 flex flex-wrap gap-2">
-        {["摩登都市 ★★★★★", "美食 ★★★★☆", "科技 ★★★★☆"].map((t) => (
+        {["Modern Metropolis ★★★★★", "Food Scene ★★★★☆", "Tech & Innovation ★★★★☆"].map((t) => (
           <span key={t} className="rounded-full bg-celadon/10 px-3 py-1 text-xs text-celadon">{t}</span>
         ))}
       </div>
@@ -17,11 +17,11 @@ export default function ShanghaiPage() {
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-See Attractions</h2>
         <div className="space-y-4">
           {[
-            { name: "外滩", time: "1-2小时", tip: "傍晚灯光最美，免费无需预约", transport: "地铁2号线/10号线 南京东路站" },
-            { name: "上海博物馆", time: "2-3小时", tip: "免费，提前3天公众号预约", transport: "地铁1号线/8号线 人民广场站" },
-            { name: "东方明珠/陆家嘴", time: "2小时", tip: "登塔¥199，可在Trip.com购票", transport: "地铁2号线 陆家嘴站" },
-            { name: "武康路", time: "1-2小时", tip: "适合散步拍照，沿途很多咖啡馆", transport: "地铁10号线 上海图书馆站" },
-            { name: "豫园", time: "1.5小时", tip: "门票¥30，附近有南翔小笼包", transport: "地铁10号线 豫园站" },
+            { name: "The Bund", time: "1-2 hours", tip: "Best at dusk when the lights come on — free, no reservation needed", transport: "Metro Line 2/10, East Nanjing Road Station" },
+            { name: "Shanghai Museum", time: "2-3 hours", tip: "Free entry, book via their WeChat mini-program 3 days ahead", transport: "Metro Line 1/8, People's Square Station" },
+            { name: "Oriental Pearl / Lujiazui", time: "2 hours", tip: "Tower entry ¥199, book via Trip.com", transport: "Metro Line 2, Lujiazui Station" },
+            { name: "Wukang Road", time: "1-2 hours", tip: "Perfect for a stroll with great photo spots and cafés along the way", transport: "Metro Line 10, Shanghai Library Station" },
+            { name: "Yu Garden", time: "1.5 hours", tip: "Entry ¥30, grab Nanxiang soup dumplings nearby", transport: "Metro Line 10, Yu Garden Station" },
           ].map((spot) => (
             <div key={spot.name} className="rounded-2xl border border-black/5 bg-surface-card p-5">
               <h3 className="font-medium">{spot.name}</h3>
@@ -38,10 +38,10 @@ export default function ShanghaiPage() {
         <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-Try Food</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           {[
-            { name: "小笼包", place: "南翔馒头店 / 佳家汤包" },
-            { name: "上海本帮菜", place: "绿波廊 / 老吉士" },
-            { name: "生煎包", place: "小杨生煎" },
-            { name: "葱油拌面", place: "老地方面馆" },
+            { name: "Soup Dumplings (Xiaolongbao)", place: "Nanxiang Steamed Bun Restaurant / Jia Jia Tang Bao" },
+            { name: "Shanghai-Style Cuisine", place: "Lu Bo Lang / Lao Ji Shi" },
+            { name: "Pan-Fried Pork Buns (Shengjianbao)", place: "Yang's Fried Dumplings" },
+            { name: "Scallion Oil Noodles", place: "Old Local Noodle House" },
           ].map((food) => (
             <div key={food.name} className="rounded-xl border border-black/5 bg-white/40 p-4">
               <h3 className="text-sm font-medium">{food.name}</h3>

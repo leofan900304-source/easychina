@@ -4,138 +4,138 @@ import { useState } from "react";
 import Link from "next/link";
 import { Download, Share2, ArrowLeft, ChevronDown, ChevronUp, Sparkles } from "lucide-react";
 
-/* Demo 行程数据 */
+/* Demo Itinerary Data */
 const itinerary = {
   entry: "上海浦东 (PVG)",
   duration: "8天7晚",
-  budget: "舒适",
-  preferences: ["历史文化", "美食探索"],
-  route: "上海(3天) → 🚄 高铁至北京(4天) → 北京首都机场出境",
+  budget: "Comfort",
+  preferences: ["History & Culture", "Food Exploration"],
+  route: "Shanghai (3 days) → 🚄 High-speed rail to Beijing (4 days) → Depart from Beijing Capital Airport",
 
   days: [
     {
       day: 1,
-      title: "抵达上海 & 外滩",
-      location: "上海",
+      title: "Arrival in Shanghai & The Bund",
+      location: "Shanghai",
       items: [
-        { time: "上午", content: "抵达浦东机场 → 地铁2号线/磁悬浮至市区", type: "transport" },
-        { time: "中午", content: "酒店入住（推荐: 南京东路附近，¥500-800/晚）", type: "hotel" },
-        { time: "下午", content: "外滩漫步 → 南京路步行街", type: "sight" },
-        { time: "晚上", content: "豫园晚餐（推荐: 绿波廊/南翔馒头店）", type: "food" },
+        { time: "Morning", content: "Arrive at Pudong Airport → Take Metro Line 2/Maglev to city center", type: "transport" },
+        { time: "Midday", content: "Check in to hotel (Recommended: near Nanjing East Road, ¥500-800/night)", type: "hotel" },
+        { time: "Afternoon", content: "Stroll along The Bund → Nanjing Road Pedestrian Street", type: "sight" },
+        { time: "Evening", content: "Dinner at Yu Garden (Recommended: Green Wave Hall/Nanxiang Steamed Bun Restaurant)", type: "food" },
       ],
       tips: [
-        "🎟️ 门票: 外滩免费，无需预约",
-        "💳 支付: 大餐厅接受国际信用卡，建议备少量现金",
-        "🚇 交通: 地铁2号线/10号线 南京东路站",
+        "🎟️ Tickets: The Bund is free, no reservation needed",
+        "💳 Payment: Large restaurants accept international credit cards; it's recommended to carry some cash",
+        "🚇 Transport: Metro Line 2/10, East Nanjing Road Station",
       ],
     },
     {
       day: 2,
-      title: "历史与法租界",
-      location: "上海",
+      title: "History & French Concession",
+      location: "Shanghai",
       items: [
-        { time: "上午", content: "上海博物馆（免费，需公众号预约）", type: "sight" },
-        { time: "中午", content: "法租界午餐（推荐: 老吉士）", type: "food" },
-        { time: "下午", content: "武康路 → 田子坊", type: "sight" },
-        { time: "晚上", content: "新天地晚餐", type: "food" },
+        { time: "Morning", content: "Shanghai Museum (Free, reservation required via WeChat official account)", type: "sight" },
+        { time: "Midday", content: "Lunch in French Concession (Recommended: Old Jesse)", type: "food" },
+        { time: "Afternoon", content: "Wukang Road → Tianzifang", type: "sight" },
+        { time: "Evening", content: "Dinner at Xintiandi", type: "food" },
       ],
       tips: [
-        "🎟️ 上海博物馆需提前3天在公众号预约",
-        "🚇 地铁1号线/8号线 人民广场站",
-        "💡 如果搞不定中文预约，让酒店前台帮忙",
+        "🎟️ Shanghai Museum requires reservation 3 days in advance via WeChat official account",
+        "🚇 Metro Line 1/8, People's Square Station",
+        "💡 If you can't manage the Chinese reservation, ask the hotel front desk for help",
       ],
     },
     {
       day: 3,
-      title: "上海 → 北京",
-      location: "上海 → 北京",
+      title: "Shanghai → Beijing",
+      location: "Shanghai → Beijing",
       items: [
-        { time: "上午", content: "G2次高铁 上海虹桥站→北京南站（4.5h，二等座¥558）", type: "transport" },
-        { time: "下午", content: "北京南站→酒店入住 → 天坛公园", type: "sight" },
-        { time: "晚上", content: "前门大街 + 北京烤鸭（推荐: 四季民福/大董）", type: "food" },
+        { time: "Morning", content: "G2 High-speed rail Shanghai Hongqiao Station→Beijing South Station (4.5h, second class ¥558)", type: "transport" },
+        { time: "Afternoon", content: "Beijing South Station→Check in to hotel → Temple of Heaven Park", type: "sight" },
+        { time: "Evening", content: "Qianmen Street + Peking Duck (Recommended: Si Ji Min Fu/Da Dong)", type: "food" },
       ],
       tips: [
-        "🚄 建议用 Trip.com（英文界面）提前购票",
-        "🎟️ 天坛: 旺季¥34，可在'畅游公园'公众号预约",
-        "💳 四季民福支持国际信用卡",
+        "🚄 It's recommended to buy tickets in advance on Trip.com (English interface)",
+        "🎟️ Temple of Heaven: Peak season ¥34, can reserve via 'Changyou Park' WeChat official account",
+        "💳 Si Ji Min Fu accepts international credit cards",
       ],
     },
     {
       day: 4,
-      title: "故宫 & 胡同",
-      location: "北京",
+      title: "Forbidden City & Hutongs",
+      location: "Beijing",
       items: [
-        { time: "上午", content: "故宫博物院（¥60，需提前7天预约）", type: "sight" },
-        { time: "下午", content: "南锣鼓巷 → 什刹海", type: "sight" },
-        { time: "晚上", content: "簋街晚餐（推荐: 花家怡园）", type: "food" },
+        { time: "Morning", content: "Forbidden City (¥60, reservation required 7 days in advance)", type: "sight" },
+        { time: "Afternoon", content: "Nanluoguxiang → Shichahai", type: "sight" },
+        { time: "Evening", content: "Dinner at Guijie (Recommended: Hua Jia Yi Yuan)", type: "food" },
       ],
       tips: [
-        "🎟️ 故宫预约在'故宫博物院'小程序，票很抢手",
-        "🎧 建议租英文语音导览 ¥20",
-        "🚇 地铁1号线 天安门东站",
+        "🎟️ Forbidden City reservations are on the 'Palace Museum' mini-program; tickets are very competitive",
+        "🎧 Recommended to rent an English audio guide ¥20",
+        "🚇 Metro Line 1, Tiananmen East Station",
       ],
     },
     {
       day: 5,
-      title: "长城一日游",
-      location: "北京",
+      title: "Great Wall Day Trip",
+      location: "Beijing",
       items: [
-        { time: "全天", content: "八达岭长城（¥40，需预约）", type: "sight" },
-        { time: "上午", content: "清河站→高铁20min到八达岭（¥20）", type: "transport" },
-        { time: "下午", content: "长城游览 → 返回市区", type: "sight" },
+        { time: "Full Day", content: "Badaling Great Wall (¥40, reservation required)", type: "sight" },
+        { time: "Morning", content: "Qinghe Station → 20min high-speed rail to Badaling (¥20)", type: "transport" },
+        { time: "Afternoon", content: "Great Wall sightseeing → Return to city", type: "sight" },
       ],
       tips: [
-        "🎟️ 在'八达岭长城'公众号预约",
-        "👟 穿舒服的鞋子，带够水",
-        "⏰ 建议早上7点出发避开人流",
+        "🎟️ Reserve on the 'Badaling Great Wall' WeChat official account",
+        "👟 Wear comfortable shoes and bring enough water",
+        "⏰ Recommended to depart at 7am to avoid crowds",
       ],
     },
     {
       day: 6,
-      title: "颐和园 & 798",
-      location: "北京",
+      title: "Summer Palace & 798",
+      location: "Beijing",
       items: [
-        { time: "上午", content: "颐和园（旺季¥30，联票¥60）", type: "sight" },
-        { time: "下午", content: "798艺术区", type: "sight" },
-        { time: "晚上", content: "三里屯晚餐", type: "food" },
+        { time: "Morning", content: "Summer Palace (Peak season ¥30, combo ticket ¥60)", type: "sight" },
+        { time: "Afternoon", content: "798 Art District", type: "sight" },
+        { time: "Evening", content: "Dinner at Sanlitun", type: "food" },
       ],
       tips: [
-        "🎟️ 颐和园在'畅游公园'预约",
-        "🚇 地铁4号线 北宫门站 → 颐和园",
-        "🏙️ 三里屯国际信用卡普遍接受",
+        "🎟️ Summer Palace reservation on 'Changyou Park' WeChat official account",
+        "🚇 Metro Line 4, Beigongmen Station → Summer Palace",
+        "🏙️ International credit cards are widely accepted in Sanlitun",
       ],
     },
     {
       day: 7,
-      title: "离境",
-      location: "北京",
+      title: "Departure",
+      location: "Beijing",
       items: [
-        { time: "上午", content: "自由活动/最后购物", type: "shopping" },
-        { time: "下午", content: "前往北京首都机场", type: "transport" },
+        { time: "Morning", content: "Free time / Final shopping", type: "shopping" },
+        { time: "Afternoon", content: "Head to Beijing Capital Airport", type: "transport" },
       ],
       tips: [
-        "🚇 机场快线: 东直门站→首都机场 30min ¥25",
-        "💰 保留购物发票，可在机场退税",
+        "🚇 Airport Express: Dongzhimen Station→Capital Airport 30min ¥25",
+        "💰 Keep your shopping receipts for tax refund at the airport",
       ],
     },
   ],
 
   paymentTips: [
-    "推荐行前完成: 开通支付宝（绑定国际信用卡）",
-    "备用: 携带500-1000元现金（部分小摊只收现金）",
-    "大型商场和酒店普遍接受Visa/Mastercard",
-    "出租车建议用滴滴App（有英文版）",
+    "Recommended before departure: Set up Alipay (link an international credit card)",
+    "Backup: Carry 500-1000 RMB in cash (some small vendors only accept cash)",
+    "Large shopping malls and hotels generally accept Visa/Mastercard",
+    "For taxis, it's recommended to use the Didi app (has English version)",
   ],
   transportTips: [
-    "城市间: 高铁建议Trip.com购票（英文界面，支持外国卡）",
-    "市内: 支付宝领地铁乘车码直接刷",
-    "打车: 滴滴App（有英文版），可绑外国信用卡",
-    "地图: 高德地图App可替代Google Maps",
+    "Between cities: Buy high-speed rail tickets on Trip.com (English interface, supports foreign cards)",
+    "Within city: Get metro QR code via Alipay to swipe directly",
+    "Ride-hailing: Didi App (has English version), can link foreign credit cards",
+    "Maps: Amap (Gaode Maps) App can replace Google Maps",
   ],
   appTips: [
-    "必装: 支付宝 / 微信 / 高德地图 / 滴滴 / Trip.com",
-    "VPN: 建议行前安装好（推荐Astrill/ExpressVPN）",
-    "⚠️ 到中国前装好VPN，落地后部分网站无法访问",
+    "Must-install: Alipay / WeChat / Amap / Didi / Trip.com",
+    "VPN: Recommended to install before departure (recommend Astrill/ExpressVPN)",
+    "⚠️ Install VPN before arriving in China; some websites will be inaccessible after landing",
   ],
 };
 
@@ -145,7 +145,7 @@ export default function ResultPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-8 md:py-16">
-      {/* 顶部导航 */}
+      {/* Top navigation */}
       <Link
         href="/plan"
         className="mb-8 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink"
@@ -154,7 +154,7 @@ export default function ResultPage() {
         Back to Planner
       </Link>
 
-      {/* 攻略头 */}
+      {/* Itinerary header */}
       <div className="mb-10">
         <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-celadon/10 px-3 py-1 text-xs font-medium text-celadon">
           <Sparkles size={12} />
@@ -166,7 +166,7 @@ export default function ResultPage() {
         </p>
       </div>
 
-      {/* 概览卡 */}
+      {/* Trip overview card */}
       <div className="mb-10 rounded-2xl border border-black/5 bg-surface-card p-6">
         <h2 className="mb-4 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">
           Trip Overview
@@ -194,7 +194,7 @@ export default function ResultPage() {
         </div>
       </div>
 
-      {/* 💳 支付模块 */}
+      {/* 💳 Payment module */}
       <div className="mb-6 rounded-2xl border border-osmanthus/20 bg-osmanthus/5 p-6">
         <h3 className="mb-3 text-sm font-semibold">💳 Payment Guide</h3>
         <ul className="space-y-1.5 text-sm text-stone">
@@ -207,7 +207,7 @@ export default function ResultPage() {
         </ul>
       </div>
 
-      {/* 🚄 交通模块 */}
+      {/* 🚄 Transport module */}
       <div className="mb-10 rounded-2xl border border-celadon/20 bg-celadon/5 p-6">
         <h3 className="mb-3 text-sm font-semibold">🚄 Transport Guide</h3>
         <ul className="space-y-1.5 text-sm text-stone">
@@ -220,7 +220,7 @@ export default function ResultPage() {
         </ul>
       </div>
 
-      {/* 按天行程 */}
+      {/* Day-by-day itinerary */}
       <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">
         Day by Day Itinerary
       </h2>
@@ -290,7 +290,7 @@ export default function ResultPage() {
         ))}
       </div>
 
-      {/* 必备APP */}
+      {/* Essential apps */}
       <div className="my-10 rounded-2xl border border-black/5 bg-surface-card p-6">
         <h3 className="mb-3 text-sm font-semibold">📱 Essential Apps</h3>
         <ul className="space-y-1.5 text-sm text-stone">
@@ -303,7 +303,7 @@ export default function ResultPage() {
         </ul>
       </div>
 
-      {/* 底部操作 */}
+      {/* Bottom actions */}
       <div className="flex flex-col gap-3 sm:flex-row">
         <button className="btn-primary flex-1 justify-center text-sm">
           <Download size={16} />

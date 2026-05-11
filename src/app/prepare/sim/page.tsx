@@ -15,7 +15,7 @@ export default function SimPage() {
       </p>
 
       <div className="mt-10 space-y-8">
-        {/* 方案对比表格 */}
+        {/* Plan comparison table */}
         <div className="overflow-hidden rounded-2xl border border-black/5">
           <table className="w-full text-sm">
             <thead>

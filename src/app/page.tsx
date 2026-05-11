@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowRight, Sparkles, Shield, Map } from "lucide-react";
 
 const popularCities = [
-  { name: "北京", tag: "🏛️ 千年古都", type: "历史文化", bg: "bg-[#E8E3DC]" },
-  { name: "上海", tag: "🌃 摩登魔都", type: "摩登都市", bg: "bg-[#E3E8E4]" },
-  { name: "西安", tag: "🏯 十三朝古都", type: "历史文化", bg: "bg-[#E8E0D8]" },
-  { name: "成都", tag: "🐼 熊猫故乡", type: "美食休闲", bg: "bg-[#E0E8E0]" },
-  { name: "重庆", tag: "🏔️ 8D山城", type: "美食都市", bg: "bg-[#E8E0E0]" },
-  { name: "桂林", tag: "⛰️ 山水甲天下", type: "自然风光", bg: "bg-[#E0E8E6]" },
+  { name: "Beijing", tag: "🏛️ Ancient Capital & Modern Hub", type: "History & Culture", bg: "bg-[#E8E3DC]" },
+  { name: "Shanghai", tag: "🌃 Vibrant Metropolis", type: "Urban & Modern", bg: "bg-[#E3E8E4]" },
+  { name: "Xi'an", tag: "🏯 Home of the Terracotta Warriors", type: "History & Culture", bg: "bg-[#E8E0D8]" },
+  { name: "Chengdu", tag: "🐼 Panda Sanctuary & Food Paradise", type: "Food & Nature", bg: "bg-[#E0E8E0]" },
+  { name: "Chongqing", tag: "🏔️ 8D Futuristic Mountain City", type: "Food & Urban", bg: "bg-[#E8E0E0]" },
+  { name: "Guilin", tag: "⛰️ Legendary Karst Landscapes", type: "Nature & Scenery", bg: "bg-[#E0E8E6]" },
 ];
 
 export default function Home() {
