@@ -6,7 +6,9 @@ import { ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
 
 /* ===== Step definitions ===== */
 type TravelPreferences = {
+  departureCity: string;
   entryCity: string;
+  exitCity: string;
   duration: number;
   budget: "budget" | "economic" | "comfortable" | "luxury";
   companions: "solo" | "couple" | "friends" | "family_kids" | "family_elderly";
@@ -17,6 +19,21 @@ type TravelPreferences = {
   diet: string[];
   specialNeeds: string;
 };
+
+const departureCities = [
+  { value: "new_york", label: "New York (JFK)" },
+  { value: "los_angeles", label: "Los Angeles (LAX)" },
+  { value: "san_francisco", label: "San Francisco (SFO)" },
+  { value: "london", label: "London (LHR)" },
+  { value: "paris", label: "Paris (CDG)" },
+  { value: "sydney", label: "Sydney (SYD)" },
+  { value: "tokyo", label: "Tokyo (NRT)" },
+  { value: "seoul", label: "Seoul (ICN)" },
+  { value: "singapore", label: "Singapore (SIN)" },
+  { value: "bangkok", label: "Bangkok (BKK)" },
+  { value: "kuala_lumpur", label: "Kuala Lumpur (KUL)" },
+  { value: "other", label: "Other" },
+];
 
 const entryCities = [
   { value: "beijing_capital", label: "北京首都 (PEK)" },
@@ -53,7 +70,9 @@ export default function PlanPage() {
   const [isGenerating, setIsGenerating] = useState(false);
 
   const [form, setForm] = useState<TravelPreferences>({
+    departureCity: "",
     entryCity: "",
+    exitCity: "",
     duration: 5,
     budget: "comfortable",
     companions: "solo",
@@ -183,9 +202,24 @@ export default function PlanPage() {
         <div className="animate-fade-in space-y-6">
           <h2 className="text-2xl font-[450]">Where and when?</h2>
 
+          {/* Departure city */}
+          <div>
+            <label className="mb-2 block text-sm font-medium">Departure City <span className="text-stone/50">(where you're flying from)</span></label>
+            <select
+              value={form.departureCity}
+              onChange={(e) => update("departureCity", e.target.value)}
+              className="w-full rounded-xl border border-black/10 bg-white/60 px-4 py-3 text-sm outline-none transition-colors focus:border-celadon focus:ring-1 focus:ring-celadon/20"
+            >
+              <option value="">Select departure...</option>
+              {departureCities.map((city) => (
+                <option key={city.value} value={city.value}>{city.label}</option>
+              ))}
+            </select>
+          </div>
+
           {/* Entry city */}
           <div>
-            <label className="mb-2 block text-sm font-medium">Entry Airport</label>
+            <label className="mb-2 block text-sm font-medium">Entry Airport (in China)</label>
             <select
               value={form.entryCity}
               onChange={(e) => update("entryCity", e.target.value)}
@@ -196,6 +230,21 @@ export default function PlanPage() {
                 <option key={city.value} value={city.value}>
                   {city.label}
                 </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Exit city */}
+          <div>
+            <label className="mb-2 block text-sm font-medium">Exit Airport (leave China from)</label>
+            <select
+              value={form.exitCity}
+              onChange={(e) => update("exitCity", e.target.value)}
+              className="w-full rounded-xl border border-black/10 bg-white/60 px-4 py-3 text-sm outline-none transition-colors focus:border-celadon focus:ring-1 focus:ring-celadon/20"
+            >
+              <option value="">Select exit city...</option>
+              {entryCities.map((city) => (
+                <option key={city.value} value={city.value}>{city.label}</option>
               ))}
             </select>
           </div>

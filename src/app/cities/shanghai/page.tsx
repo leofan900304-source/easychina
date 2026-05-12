@@ -1,184 +1,168 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, ExternalLink, Coffee } from "lucide-react";
 
 export default function ShanghaiPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8 md:py-16">
-      <Link href="/cities" className="mb-6 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink">
+    <div className="mx-auto max-w-6xl px-4 py-6 md:px-8 md:py-10">
+      {/* Back */}
+      <Link href="/cities" className="mb-4 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink">
         <ArrowLeft size={14} />
         All Cities
       </Link>
 
-      {/* City Header — Original style */}
-      <div className="mb-10">
-        <h1 className="text-4xl font-[450] tracking-tight">Shanghai</h1>
-        <p className="mt-2 text-lg text-stone">🌃 The Pearl of the Orient, City of Endless Energy</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {["Modern Metropolis ★★★★★", "Food Scene ★★★★☆", "Tech & Innovation ★★★★☆"].map((t) => (
-            <span key={t} className="rounded-full bg-celadon/10 px-3 py-1 text-xs text-celadon">{t}</span>
-          ))}
+      {/* Hero 16:9 */}
+      <div className="relative mb-10 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+        <Image
+          src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200&q=80"
+          alt="Shanghai"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
+          <h1 className="text-3xl font-semibold text-white md:text-5xl">Shanghai</h1>
+          <p className="mt-1 text-sm text-white/70 md:text-base">上海</p>
         </div>
       </div>
 
-      {/* Attractions */}
+      {/* Top Experiences */}
       <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-See Attractions</h2>
-        <div className="space-y-5">
-          <AttractionCard
-            name="The Bund"
-            nameCn="外滩"
-            time="1-2 hours"
-            price="Free"
-            tip="Best at dusk when the lights come on — free, no reservation needed"
-            transport="Metro Line 2/10, East Nanjing Road Station"
-          />
-          <AttractionCard
-            name="Shanghai Museum"
-            nameCn="上海博物馆"
-            time="2-3 hours"
-            price="Free"
-            tip="Free entry, book via their WeChat mini-program 3 days ahead"
-            transport="Metro Line 1/8, People's Square Station"
-          />
-          <AttractionCard
-            name="Oriental Pearl / Lujiazui"
-            nameCn="东方明珠"
-            time="2 hours"
-            price="¥199"
-            tip="Tower entry ¥199, book via Trip.com"
-            transport="Metro Line 2, Lujiazui Station"
-          />
-          <AttractionCard
-            name="Wukang Road"
-            nameCn="武康路"
-            time="1-2 hours"
-            price="Free"
-            tip="Perfect for a stroll with great photo spots and cafés along the way"
-            transport="Metro Line 10, Shanghai Library Station"
-          />
-          <AttractionCard
-            name="Yu Garden"
-            nameCn="豫园"
-            time="1.5 hours"
-            price="¥30"
-            tip="Entry ¥30, grab Nanxiang soup dumplings nearby"
-            transport="Metro Line 10, Yu Garden Station"
-          />
-        </div>
-      </section>
-
-      {/* Food */}
-      <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-Try Food</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <FoodCard name="Soup Dumplings (Xiaolongbao)" nameCn="小笼包" place="Nanxiang Steamed Bun Restaurant / Jia Jia Tang Bao" price="¥15-30" rating="★★★★★" />
-          <FoodCard name="Shanghai-Style Cuisine" nameCn="本帮菜" place="Lu Bo Lang / Lao Ji Shi" price="¥80-150/person" rating="★★★★☆" />
-          <FoodCard name="Pan-Fried Pork Buns (Shengjianbao)" nameCn="生煎包" place="Yang's Fried Dumplings" price="¥8-12" rating="★★★★★" />
-          <FoodCard name="Scallion Oil Noodles" nameCn="葱油拌面" place="Old Local Noodle House" price="¥15-25" rating="★★★★☆" />
-        </div>
-      </section>
-
-      {/* Transport */}
-      <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Transport</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-black/5 bg-white p-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-celadon/10 text-sm">🚇</span>
-              <h3 className="text-sm font-semibold">Getting Around</h3>
-            </div>
-            <ul className="space-y-2 text-sm text-stone">
-              <li>● Metro covers all major attractions — use Alipay transit card</li>
-              <li>● Didi (ride-hailing) from ¥14</li>
-              <li>● Floating on the Huangpu Ferry is a classic Shanghai experience</li>
-              <li>● Bike share: Meituan / HelloBike — scan to ride anywhere</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-celadon/10 bg-celadon/5 p-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-celadon/20 text-sm">🚄</span>
-              <h3 className="text-sm font-semibold">Intercity Travel</h3>
-            </div>
-            <ul className="space-y-2 text-sm text-stone">
-              <li>● To Beijing: HSR 4.5h ¥558</li>
-              <li>● To Nanjing: HSR 1h ¥134</li>
-              <li>● To Hangzhou: HSR 1h ¥73</li>
-              <li>● To Chengdu: HSR 11h or flight 3h</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Accommodation */}
-      <section>
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Where to Stay</h2>
-        <div className="grid gap-3 sm:grid-cols-3">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Top Experiences</h2>
+        <div className="grid grid-cols-3 gap-3 md:grid-cols-6">
           {[
-            { area: "The Bund / Lujiazui Area", best: "Best for Luxury Views", desc: "Top-tier hotels with skyline views. Close to the Bund and Pudong.", icon: "🌉" },
-            { area: "French Concession", best: "Best for Character", desc: "Tree-lined streets, boutique hotels, art deco architecture, great cafés.", icon: "🌳" },
-            { area: "Jing'an / Nanjing Rd", best: "Best for Shopping", desc: "Central location with extensive shopping and dining options.", icon: "🛍️" },
-          ].map((a) => (
-            <div key={a.area} className="rounded-xl border border-black/5 bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-soft">
-              <span className="text-lg">{a.icon}</span>
-              <h3 className="mt-1 text-sm font-medium">{a.area}</h3>
-              <span className="text-[11px] text-celadon">{a.best}</span>
-              <p className="mt-1.5 text-xs text-stone">{a.desc}</p>
+            { name: "The Bund", cn: "外滩", img: "https://images.unsplash.com/photo-1559715541-5d5e8b2b2d6a?w=300&q=80" },
+            { name: "Shanghai Museum", cn: "上海博物馆", img: "https://images.unsplash.com/photo-1585565804112-f295f2f95a11?w=300&q=80" },
+            { name: "Oriental Pearl", cn: "东方明珠", img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=300&q=80" },
+            { name: "Yu Garden", cn: "豫园", img: "https://images.unsplash.com/photo-1557411732-1797ed2f8a1c?w=300&q=80" },
+            { name: "Wukang Road", cn: "武康路", img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&q=80" },
+            { name: "Soup Dumplings", cn: "小笼包", img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=300&q=80" },
+          ].map((item) => (
+            <div key={item.name} className="group cursor-pointer">
+              <div className="relative mb-2 overflow-hidden rounded-xl" style={{ aspectRatio: "1/1" }}>
+                <Image src={item.img} alt={item.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <p className="text-center text-xs font-medium text-ink">{item.name}</p>
+              <p className="text-center text-[10px] text-stone/50">{item.cn}</p>
             </div>
           ))}
         </div>
       </section>
-    </div>
-  );
-}
 
-function AttractionCard({ name, nameCn, time, price, tip, transport, book }: {
-  name: string; nameCn: string; time: string; price: string; tip: string; transport: string; book?: string | null;
-}) {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-card">
-      <div className="flex items-center justify-between bg-gradient-to-r from-blue-100 to-blue-50 px-5 py-3">
-        <div className="flex items-center gap-2">
-          <span className="rounded bg-white/80 px-2.5 py-0.5 text-xs font-medium text-ink shadow-sm">⏱️ {time}</span>
-        </div>
-        <button
-          onClick={() => window.open(`https://maps.google.com/?q=${encodeURIComponent(nameCn)}`, "_blank")}
-          className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-all hover:bg-white"
-        >🚕 Show Driver</button>
-      </div>
-      <div className="p-5">
-        <div className="flex items-start justify-between">
-          <div>
-            <h3 className="font-medium">{name}</h3>
-            <span className="text-xs text-stone/50">{nameCn}</span>
-          </div>
-          <div className="text-right">
-            <span className="text-xs text-stone/50">{price}</span>
-            {book && <p className="mt-0.5 text-[10px] font-medium text-cinnabar">🔔 Book {book}</p>}
-          </div>
-        </div>
-        <div className="mt-2 text-xs text-stone">🚇 {transport}</div>
-        <p className="mt-2 text-xs text-stone/60">💡 {tip}</p>
-      </div>
-    </div>
-  );
-}
+      {/* Itinerary Preview */}
+      <section className="mb-12">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Suggested Itinerary</h2>
 
-function FoodCard({ name, nameCn, place, price, rating }: {
-  name: string; nameCn: string; place: string; price: string; rating: string;
-}) {
-  return (
-    <div className="rounded-xl border-l-4 border-blue-300 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft">
-      <div className="flex items-start justify-between">
-        <div>
-          <h3 className="text-sm font-medium">{name}</h3>
-          <span className="text-xs text-stone/50">{nameCn}</span>
+        {/* Day 1 */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 1: The Bund & Old Shanghai</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1559715541-5d5e8b2b2d6a?w=800&q=80"
+              alt="The Bund"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">🌉 The Bund</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Morning:</strong> The Bund (Free — best at dusk, but the morning light is gorgeous too)</p>
+            <p>🔵 <strong>Afternoon:</strong> Yu Garden (¥30, grab Nanxiang soup dumplings nearby)</p>
+            <p>🔵 <strong>Evening:</strong> Nanjing Road pedestrian street + Huangpu Ferry night cruise</p>
+            <button className="mt-2 inline-flex items-center gap-1 rounded-full bg-celadon/10 px-3 py-1.5 text-xs font-medium text-celadon">
+              🚕 Show Driver
+              <ExternalLink size={12} />
+            </button>
+          </div>
         </div>
-        <span className="text-xs text-amber-500">{rating}</span>
-      </div>
-      <p className="mt-1 text-xs text-stone">📍 {place}</p>
-      <p className="mt-0.5 text-xs text-stone/50">{price}</p>
+
+        {/* Day 2 */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 2: Modern Shanghai</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1585565804112-f295f2f95a11?w=800&q=80"
+              alt="Shanghai Museum"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">🏛️ Shanghai Museum</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Morning:</strong> Shanghai Museum (Free, book via WeChat mini-program 3 days ahead)</p>
+            <p>🔵 <strong>Afternoon:</strong> Oriental Pearl Tower (¥199, book via Trip.com)</p>
+            <p>🔵 <strong>Evening:</strong> Lujiazui skyline walk + dinner in the French Concession</p>
+          </div>
+        </div>
+
+        {/* Day 3 */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 3: Culture & Food</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&q=80"
+              alt="Wukang Road"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">🌳 Wukang Road</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Morning:</strong> Wukang Road stroll (Free, great cafes and photo spots)</p>
+            <p>🔵 <strong>Afternoon:</strong> Soup dumplings at Jia Jia Tang Bao (¥15-30) + Tianzifang craft market</p>
+            <p>🔵 <strong>Evening:</strong> Shanghai-style cuisine at Lu Bo Lang (¥80-150/person)</p>
+          </div>
+        </div>
+      </section>
+
+      {/* GET CONNECTED - Monetization Module */}
+      <section className="mb-8 rounded-2xl border border-black/5 bg-white p-6">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Get Connected in China</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {/* eSIM */}
+          <div className="rounded-xl border border-black/5 bg-gradient-to-br from-emerald-50 to-white p-5">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-lg">📱</span>
+              <div>
+                <p className="text-sm font-medium">eSIM for China</p>
+                <p className="text-xs text-stone/50">Instant connectivity, no physical SIM needed</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <a href="#" className="flex-1 rounded-lg bg-emerald-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-emerald-700">Airalo →</a>
+              <a href="#" className="flex-1 rounded-lg bg-emerald-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-emerald-700">Holafly →</a>
+            </div>
+          </div>
+
+          {/* VPN */}
+          <div className="rounded-xl border border-black/5 bg-gradient-to-br from-blue-50 to-white p-5">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-lg">🔒</span>
+              <div>
+                <p className="text-sm font-medium">VPN Services</p>
+                <p className="text-xs text-stone/50">Access Google, Instagram & more</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <a href="#" className="flex-1 rounded-lg bg-blue-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-blue-700">ExpressVPN →</a>
+              <a href="#" className="flex-1 rounded-lg bg-blue-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-blue-700">Astrill →</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Buy Me a Coffee */}
+        <div className="mt-4 flex items-center justify-center gap-2 rounded-xl border border-black/5 bg-amber-50/50 py-3">
+          <Coffee size={16} className="text-amber-700" />
+          <span className="text-xs text-stone">Support Solo Developer</span>
+          <a href="#" className="rounded-full bg-amber-600 px-4 py-1 text-xs font-medium text-white transition-all hover:bg-amber-700">Buy Me a Coffee</a>
+        </div>
+      </section>
     </div>
   );
 }

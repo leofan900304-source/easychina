@@ -1,183 +1,168 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, ExternalLink, Coffee } from "lucide-react";
 
 export default function GuilinPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8 md:py-16">
-      <Link href="/cities" className="mb-6 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink">
+    <div className="mx-auto max-w-6xl px-4 py-6 md:px-8 md:py-10">
+      {/* Back */}
+      <Link href="/cities" className="mb-4 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink">
         <ArrowLeft size={14} />
         All Cities
       </Link>
 
-      {/* City Header — Original style */}
-      <div className="mb-10">
-        <h1 className="text-4xl font-[450] tracking-tight">Guilin</h1>
-        <p className="mt-2 text-lg text-stone">🏞️ China&rsquo;s Most Beautiful Karst Landscape</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {["Natural Scenery ★★★★★", "Outdoor Activities ★★★★☆", "Photography ★★★★★"].map((t) => (
-            <span key={t} className="rounded-full bg-celadon/10 px-3 py-1 text-xs text-celadon">{t}</span>
-          ))}
+      {/* Hero 16:9 */}
+      <div className="relative mb-10 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+        <Image
+          src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&q=80"
+          alt="Guilin"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
+          <h1 className="text-3xl font-semibold text-white md:text-5xl">Guilin</h1>
+          <p className="mt-1 text-sm text-white/70 md:text-base">桂林</p>
         </div>
       </div>
 
-      {/* Attractions */}
+      {/* Top Experiences */}
       <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-See Attractions</h2>
-        <div className="space-y-5">
-          <AttractionCard
-            name="Li River Cruise"
-            nameCn="漓江"
-            time="4-5 hours"
-            price="¥320"
-            tip="Book the Guilin-Yangshuo cruise. Morning departures — the misty karst views at dawn are legendary"
-            transport="Bus from Guilin to Mopanshan Pier (¥20)"
-          />
-          <AttractionCard
-            name="Yangshuo West Street"
-            nameCn="阳朔西街"
-            time="2-3 hours"
-            price="Free"
-            tip="Explore the surrounding countryside by e-bike (¥40/day) — the rice paddies are stunning"
-            transport="HSR from Guilin to Yangshuo (30min, ¥30)"
-          />
-          <AttractionCard
-            name="Longji Rice Terraces"
-            nameCn="龙脊梯田"
-            time="Full day"
-            price="¥80"
-            tip="Best visited in May-June (water-filled) or September-October (golden harvest)"
-            transport="Bus from Guilin to Longji (2.5h, ¥65)"
-          />
-          <AttractionCard
-            name="Elephant Trunk Hill"
-            nameCn="象鼻山"
-            time="1 hour"
-            price="¥55"
-            tip="Guilin's iconic symbol. A quick stop — the best photo is from across the river"
-            transport="Bus 57 from the city center"
-          />
-          <AttractionCard
-            name="Reed Flute Cave"
-            nameCn="芦笛岩"
-            time="1.5 hours"
-            price="¥90"
-            tip="The colorful lighting on the stalactites is impressive. Cool inside even in summer"
-            transport="Bus 3 from the city center (20min)"
-          />
-        </div>
-      </section>
-
-      {/* Food */}
-      <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-Try Food</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <FoodCard name="Guilin Rice Noodles" nameCn="桂林米粉" place="Rice Noodle Street / Laodifang" price="¥8-15" rating="★★★★★" />
-          <FoodCard name="Beer Fish (Yangshuo)" nameCn="啤酒鱼" place="Xie Sanjie's Beer Fish" price="¥50-80" rating="★★★★★" />
-          <FoodCard name="Stuffed Li River Snails" nameCn="酿田螺" place="Dongpo Restaurant" price="¥20-35" rating="★★★★☆" />
-          <FoodCard name="Oil Tea (Leicha)" nameCn="打油茶" place="Yao Ethnic Restaurant" price="¥10-20" rating="★★★☆☆" />
-        </div>
-      </section>
-
-      {/* Transport */}
-      <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Transport</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-black/5 bg-white p-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-celadon/10 text-sm">🚌</span>
-              <h3 className="text-sm font-semibold">Getting Around</h3>
-            </div>
-            <ul className="space-y-2 text-sm text-stone">
-              <li>● No metro, but city buses cover all main spots — ¥1-2 per ride</li>
-              <li>● E-bike rentals are the best way to explore Yangshuo — ¥40/day</li>
-              <li>● Guilin is small — most downtown attractions are walkable</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-celadon/10 bg-celadon/5 p-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-celadon/20 text-sm">🚄</span>
-              <h3 className="text-sm font-semibold">Intercity Travel</h3>
-            </div>
-            <ul className="space-y-2 text-sm text-stone">
-              <li>● To Guangzhou: HSR 2.5h ¥165</li>
-              <li>● To Changsha: HSR 3h ¥210</li>
-              <li>● To Kunming: HSR 4.5h ¥345</li>
-              <li>● To Chengdu: HSR 5h ¥362</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Accommodation */}
-      <section>
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Where to Stay</h2>
-        <div className="grid gap-3 sm:grid-cols-3">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Top Experiences</h2>
+        <div className="grid grid-cols-3 gap-3 md:grid-cols-6">
           {[
-            { area: "Downtown Guilin (Xiangle Rd)", best: "Best for Convenience", desc: "Close to Sun and Moon Pagodas, Elephant Trunk Hill, and bus stations.", icon: "🏙️" },
-            { area: "Yangshuo Town", best: "Best for Scenery", desc: "Surrounded by karst peaks. West Street has endless restaurants and bars.", icon: "🏞️" },
-            { area: "Dragon's Back (Longji)", best: "Best for Peace", desc: "Stay in a Yao minority guesthouse among the rice terraces. Unforgettable sunrise.", icon: "🌄" },
-          ].map((a) => (
-            <div key={a.area} className="rounded-xl border border-black/5 bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-soft">
-              <span className="text-lg">{a.icon}</span>
-              <h3 className="mt-1 text-sm font-medium">{a.area}</h3>
-              <span className="text-[11px] text-celadon">{a.best}</span>
-              <p className="mt-1.5 text-xs text-stone">{a.desc}</p>
+            { name: "Li River Cruise", cn: "漓江", img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=300&q=80" },
+            { name: "Yangshuo West Street", cn: "阳朔西街", img: "https://images.unsplash.com/photo-1559715541-5d5e8b2b2d6a?w=300&q=80" },
+            { name: "Longji Rice Terraces", cn: "龙脊梯田", img: "https://images.unsplash.com/photo-1585565804112-f295f2f95a11?w=300&q=80" },
+            { name: "Elephant Trunk Hill", cn: "象鼻山", img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=300&q=80" },
+            { name: "Reed Flute Cave", cn: "芦笛岩", img: "https://images.unsplash.com/photo-1557411732-1797ed2f8a1c?w=300&q=80" },
+            { name: "Guilin Rice Noodles", cn: "桂林米粉", img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&q=80" },
+          ].map((item) => (
+            <div key={item.name} className="group cursor-pointer">
+              <div className="relative mb-2 overflow-hidden rounded-xl" style={{ aspectRatio: "1/1" }}>
+                <Image src={item.img} alt={item.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <p className="text-center text-xs font-medium text-ink">{item.name}</p>
+              <p className="text-center text-[10px] text-stone/50">{item.cn}</p>
             </div>
           ))}
         </div>
       </section>
-    </div>
-  );
-}
 
-function AttractionCard({ name, nameCn, time, price, tip, transport, book }: {
-  name: string; nameCn: string; time: string; price: string; tip: string; transport: string; book?: string | null;
-}) {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-card">
-      <div className="flex items-center justify-between bg-gradient-to-r from-teal-100 to-teal-50 px-5 py-3">
-        <div className="flex items-center gap-2">
-          <span className="rounded bg-white/80 px-2.5 py-0.5 text-xs font-medium text-ink shadow-sm">⏱️ {time}</span>
-        </div>
-        <button
-          onClick={() => window.open(`https://maps.google.com/?q=${encodeURIComponent(nameCn)}`, "_blank")}
-          className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-all hover:bg-white"
-        >🚕 Show Driver</button>
-      </div>
-      <div className="p-5">
-        <div className="flex items-start justify-between">
-          <div>
-            <h3 className="font-medium">{name}</h3>
-            <span className="text-xs text-stone/50">{nameCn}</span>
-          </div>
-          <div className="text-right">
-            <span className="text-xs text-stone/50">{price}</span>
-            {book && <p className="mt-0.5 text-[10px] font-medium text-cinnabar">🔔 Book {book}</p>}
-          </div>
-        </div>
-        <div className="mt-2 text-xs text-stone">🚇 {transport}</div>
-        <p className="mt-2 text-xs text-stone/60">💡 {tip}</p>
-      </div>
-    </div>
-  );
-}
+      {/* Itinerary Preview */}
+      <section className="mb-12">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Suggested Itinerary</h2>
 
-function FoodCard({ name, nameCn, place, price, rating }: {
-  name: string; nameCn: string; place: string; price: string; rating: string;
-}) {
-  return (
-    <div className="rounded-xl border-l-4 border-teal-300 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft">
-      <div className="flex items-start justify-between">
-        <div>
-          <h3 className="text-sm font-medium">{name}</h3>
-          <span className="text-xs text-stone/50">{nameCn}</span>
+        {/* Day 1 */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 1: Li River & Yangshuo</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80"
+              alt="Li River"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">🚢 Li River Cruise</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Morning:</strong> Li River Cruise (¥320, Guilin-Yangshuo — misty karst views at dawn are legendary)</p>
+            <p>🔵 <strong>Transport:</strong> Bus from Guilin to Mopanshan Pier (¥20)</p>
+            <p>🔵 <strong>Evening:</strong> Yangshuo West Street (Free, explore on e-bike ¥40/day)</p>
+            <button className="mt-2 inline-flex items-center gap-1 rounded-full bg-celadon/10 px-3 py-1.5 text-xs font-medium text-celadon">
+              🚕 Show Driver
+              <ExternalLink size={12} />
+            </button>
+          </div>
         </div>
-        <span className="text-xs text-amber-500">{rating}</span>
-      </div>
-      <p className="mt-1 text-xs text-stone">📍 {place}</p>
-      <p className="mt-0.5 text-xs text-stone/50">{price}</p>
+
+        {/* Day 2 */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 2: Longji Rice Terraces</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1559715541-5d5e8b2b2d6a?w=800&q=80"
+              alt="Longji Rice Terraces"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">🌾 Longji Rice Terraces</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Full Day:</strong> Longji Rice Terraces (¥80, best in May-June or September-October)</p>
+            <p>🔵 <strong>Transport:</strong> Bus from Guilin to Longji (2.5h, ¥65)</p>
+            <p>🔵 <strong>Stay:</strong> Yao minority guesthouse among the terraces for an unforgettable sunrise</p>
+          </div>
+        </div>
+
+        {/* Day 3 */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 3: City Highlights</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1585565804112-f295f2f95a11?w=800&q=80"
+              alt="Elephant Trunk Hill"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">🐘 Elephant Trunk Hill</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Morning:</strong> Elephant Trunk Hill (¥55, best photo from across the river)</p>
+            <p>🔵 <strong>Afternoon:</strong> Reed Flute Cave (¥90, colorful stalactites, cool inside even in summer)</p>
+            <p>🔵 <strong>Evening:</strong> Guilin Rice Noodles at Rice Noodle Street (¥8-15) + Beer Fish at Xie Sanjie's (¥50-80)</p>
+          </div>
+        </div>
+      </section>
+
+      {/* GET CONNECTED - Monetization Module */}
+      <section className="mb-8 rounded-2xl border border-black/5 bg-white p-6">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Get Connected in China</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {/* eSIM */}
+          <div className="rounded-xl border border-black/5 bg-gradient-to-br from-emerald-50 to-white p-5">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-lg">📱</span>
+              <div>
+                <p className="text-sm font-medium">eSIM for China</p>
+                <p className="text-xs text-stone/50">Instant connectivity, no physical SIM needed</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <a href="#" className="flex-1 rounded-lg bg-emerald-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-emerald-700">Airalo →</a>
+              <a href="#" className="flex-1 rounded-lg bg-emerald-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-emerald-700">Holafly →</a>
+            </div>
+          </div>
+
+          {/* VPN */}
+          <div className="rounded-xl border border-black/5 bg-gradient-to-br from-blue-50 to-white p-5">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-lg">🔒</span>
+              <div>
+                <p className="text-sm font-medium">VPN Services</p>
+                <p className="text-xs text-stone/50">Access Google, Instagram & more</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <a href="#" className="flex-1 rounded-lg bg-blue-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-blue-700">ExpressVPN →</a>
+              <a href="#" className="flex-1 rounded-lg bg-blue-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-blue-700">Astrill →</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Buy Me a Coffee */}
+        <div className="mt-4 flex items-center justify-center gap-2 rounded-xl border border-black/5 bg-amber-50/50 py-3">
+          <Coffee size={16} className="text-amber-700" />
+          <span className="text-xs text-stone">Support Solo Developer</span>
+          <a href="#" className="rounded-full bg-amber-600 px-4 py-1 text-xs font-medium text-white transition-all hover:bg-amber-700">Buy Me a Coffee</a>
+        </div>
+      </section>
     </div>
   );
 }

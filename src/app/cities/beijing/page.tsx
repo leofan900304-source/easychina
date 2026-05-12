@@ -1,184 +1,167 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, ExternalLink, Coffee } from "lucide-react";
 
 export default function BeijingPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 py-8 md:py-16">
-      <Link href="/cities" className="mb-6 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink">
+    <div className="mx-auto max-w-6xl px-4 py-6 md:px-8 md:py-10">
+      {/* Back */}
+      <Link href="/cities" className="mb-4 inline-flex items-center gap-1.5 text-xs text-stone transition-colors hover:text-ink">
         <ArrowLeft size={14} />
         All Cities
       </Link>
 
-      {/* City Header — 初版风格 */}
-      <div className="mb-10">
-        <h1 className="text-4xl font-[450] tracking-tight">Beijing</h1>
-        <p className="mt-2 text-lg text-stone">⛩️ Ancient Capital, Modern Heartbeat</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {["History & Culture", "Urban", "Food"].map((t) => (
-            <span key={t} className="rounded-full bg-celadon/10 px-3 py-1 text-xs text-celadon">{t}</span>
-          ))}
+      {/* Hero 16:9 */}
+      <div className="relative mb-10 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+        <Image
+          src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=1200&q=80"
+          alt="Beijing"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
+          <h1 className="text-3xl font-semibold text-white md:text-5xl">Beijing</h1>
+          <p className="mt-1 text-sm text-white/70 md:text-base">北京</p>
         </div>
       </div>
 
-      {/* Attractions */}
+      {/* Top Experiences */}
       <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-See Attractions</h2>
-        <div className="space-y-5">
-          <AttractionCard
-            name="Forbidden City"
-            nameCn="故宫"
-            time="3-4 hrs"
-            price="¥60"
-            tip="Book 7 days ahead on the Forbidden City mini-program"
-            transport="Metro Line 1, Tiananmen East"
-            book="7 days ahead"
-          />
-          <AttractionCard
-            name="Great Wall (Badaling)"
-            nameCn="长城"
-            time="Full day"
-            price="¥40"
-            tip="Leave by 7am to avoid crowds"
-            transport="HSR to Badaling Station"
-          />
-          <AttractionCard
-            name="Temple of Heaven"
-            nameCn="天坛"
-            time="2 hrs"
-            price="¥34"
-            tip="Book via Changyou Park WeChat account"
-            transport="Metro Line 5, Tiantandongmen"
-          />
-          <AttractionCard
-            name="Summer Palace"
-            nameCn="颐和园"
-            time="3 hrs"
-            price="¥30"
-            tip="Go for the combo ticket"
-            transport="Metro Line 4, Beigongmen"
-          />
-          <AttractionCard
-            name="Nanluoguxiang"
-            nameCn="南锣鼓巷"
-            time="2 hrs"
-            price="Free"
-            tip="Best in the evening"
-            transport="Metro Line 6, Nanluoguxiang"
-          />
-        </div>
-      </section>
-
-      {/* Food */}
-      <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Must-Try Food</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <FoodCard name="Peking Duck" nameCn="北京烤鸭" place="Sijimin Fu / Dadong" price="¥150-300" rating="★★★★★" />
-          <FoodCard name="Zhajiangmian" nameCn="炸酱面" place="Haiwan Ju" price="¥20-40" rating="★★★★☆" />
-          <FoodCard name="Lamb Hotpot" nameCn="涮羊肉" place="Donglaishun" price="¥100-200" rating="★★★★★" />
-          <FoodCard name="Douzhir & Jianquanr" nameCn="豆汁焦圈" place="Huguosi Snacks" price="¥10-20" rating="★★★☆☆" />
-        </div>
-      </section>
-
-      {/* Transport */}
-      <section className="mb-12">
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Transport</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-black/5 bg-white p-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-celadon/10 text-sm">🚇</span>
-              <h3 className="text-sm font-semibold">Getting Around</h3>
-            </div>
-            <ul className="space-y-2 text-sm text-stone">
-              <li>● Metro covers all — Alipay transit card</li>
-              <li>● Didi from ¥13</li>
-              <li>● Bike share: Meituan / HelloBike</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-celadon/10 bg-celadon/5 p-5">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-celadon/20 text-sm">🚄</span>
-              <h3 className="text-sm font-semibold">Intercity Travel</h3>
-            </div>
-            <ul className="space-y-2 text-sm text-stone">
-              <li>● To Shanghai: HSR 4.5h ¥558</li>
-              <li>● To Xi'an: HSR 4.5h ¥515</li>
-              <li>● To Chengdu: HSR 7.5h / flight 2.5h</li>
-              <li>● To Chongqing: HSR 10.5h / flight 2.5h</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Accommodation */}
-      <section>
-        <h2 className="mb-6 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Where to Stay</h2>
-        <div className="grid gap-3 sm:grid-cols-3">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Top Experiences</h2>
+        <div className="grid grid-cols-3 gap-3 md:grid-cols-6">
           {[
-            { area: "Dongcheng (Wangfujing)", best: "Best for tourists", desc: "Walk to Forbidden City", icon: "🏛️" },
-            { area: "Chaoyang (Sanlitun)", best: "Best for nightlife", desc: "Most international area", icon: "🌃" },
-            { area: "Xicheng (Shichahai)", best: "Best for culture", desc: "Hutong experience", icon: "🏘️" },
-          ].map((a) => (
-            <div key={a.area} className="rounded-xl border border-black/5 bg-white p-4 transition-all hover:-translate-y-0.5 hover:shadow-soft">
-              <span className="text-lg">{a.icon}</span>
-              <h3 className="mt-1 text-sm font-medium">{a.area}</h3>
-              <span className="text-[11px] text-celadon">{a.best}</span>
-              <p className="mt-1.5 text-xs text-stone">{a.desc}</p>
+            { name: "Forbidden City", cn: "故宫", img: "https://images.unsplash.com/photo-1559715541-5d5e8b2b2d6a?w=300&q=80" },
+            { name: "Great Wall", cn: "长城", img: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=300&q=80" },
+            { name: "Temple of Heaven", cn: "天坛", img: "https://images.unsplash.com/photo-1585565804112-f295f2f95a11?w=300&q=80" },
+            { name: "Summer Palace", cn: "颐和园", img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=300&q=80" },
+            { name: "Nanluoguxiang", cn: "南锣鼓巷", img: "https://images.unsplash.com/photo-1557411732-1797ed2f8a1c?w=300&q=80" },
+            { name: "Peking Duck", cn: "北京烤鸭", img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&q=80" },
+          ].map((item) => (
+            <div key={item.name} className="group cursor-pointer">
+              <div className="relative mb-2 overflow-hidden rounded-xl" style={{ aspectRatio: "1/1" }}>
+                <Image src={item.img} alt={item.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
+              </div>
+              <p className="text-center text-xs font-medium text-ink">{item.name}</p>
+              <p className="text-center text-[10px] text-stone/50">{item.cn}</p>
             </div>
           ))}
         </div>
       </section>
-    </div>
-  );
-}
 
-function AttractionCard({ name, nameCn, time, price, tip, transport, book }: {
-  name: string; nameCn: string; time: string; price: string; tip: string; transport: string; book?: string | null;
-}) {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-200 hover:-translate-y-1 hover:shadow-card">
-      <div className="flex items-center justify-between bg-gradient-to-r from-rose-100 to-rose-50 px-5 py-3">
-        <div className="flex items-center gap-2">
-          <span className="rounded bg-white/80 px-2.5 py-0.5 text-xs font-medium text-ink shadow-sm">⏱️ {time}</span>
-        </div>
-        <button
-          onClick={() => window.open(`https://maps.google.com/?q=${encodeURIComponent(nameCn)}`, "_blank")}
-          className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-ink shadow-sm transition-all hover:bg-white"
-        >🚕 Show Driver</button>
-      </div>
-      <div className="p-5">
-        <div className="flex items-start justify-between">
-          <div>
-            <h3 className="font-medium">{name}</h3>
-            <span className="text-xs text-stone/50">{nameCn}</span>
-          </div>
-          <div className="text-right">
-            <span className="text-xs text-stone/50">{price}</span>
-            {book && <p className="mt-0.5 text-[10px] font-medium text-cinnabar">🔔 Book {book}</p>}
-          </div>
-        </div>
-        <div className="mt-2 text-xs text-stone">🚇 {transport}</div>
-        <p className="mt-2 text-xs text-stone/60">💡 {tip}</p>
-      </div>
-    </div>
-  );
-}
+      {/* Itinerary Preview */}
+      <section className="mb-12">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Suggested Itinerary</h2>
 
-function FoodCard({ name, nameCn, place, price, rating }: {
-  name: string; nameCn: string; place: string; price: string; rating: string;
-}) {
-  return (
-    <div className="rounded-xl border-l-4 border-rose-300 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-soft">
-      <div className="flex items-start justify-between">
-        <div>
-          <h3 className="text-sm font-medium">{name}</h3>
-          <span className="text-xs text-stone/50">{nameCn}</span>
+        {/* Day 1 */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 1: Imperial Grandeur</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1559715541-5d5e8b2b2d6a?w=800&q=80"
+              alt="Forbidden City"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">🏯 Forbidden City</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Morning:</strong> Forbidden City (¥60, book 7 days ahead)</p>
+            <p>🔵 <strong>Afternoon:</strong> Jingshan Park for panoramic views</p>
+            <p>🔵 <strong>Evening:</strong> Wangfujing Night Market</p>
+            <button className="mt-2 inline-flex items-center gap-1 rounded-full bg-celadon/10 px-3 py-1.5 text-xs font-medium text-celadon">
+              🚕 Show Driver
+              <ExternalLink size={12} />
+            </button>
+          </div>
         </div>
-        <span className="text-xs text-amber-500">{rating}</span>
-      </div>
-      <p className="mt-1 text-xs text-stone">📍 {place}</p>
-      <p className="mt-0.5 text-xs text-stone/50">{price}</p>
+
+        {/* Day 2 */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 2: The Great Wall</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80"
+              alt="Great Wall"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">🧱 Great Wall</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Full Day:</strong> Badaling Great Wall (¥40, leave by 7am)</p>
+            <p>🔵 <strong>Transport:</strong> HSR from Qinghe Station to Badaling (20min)</p>
+          </div>
+        </div>
+
+        {/* Day 3 - quick summary for brevity */}
+        <div className="mb-10">
+          <h3 className="mb-3 text-lg font-medium">Day 3: Temples & Hutongs</h3>
+          <div className="relative mb-4 overflow-hidden rounded-2xl" style={{ aspectRatio: "16/9" }}>
+            <Image
+              src="https://images.unsplash.com/photo-1585565804112-f295f2f95a11?w=800&q=80"
+              alt="Temple of Heaven"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-ink backdrop-blur-sm">⛩️ Temple of Heaven</span>
+          </div>
+          <div className="space-y-2 text-sm text-stone">
+            <p>🔵 <strong>Morning:</strong> Temple of Heaven (¥34)</p>
+            <p>🔵 <strong>Afternoon:</strong> Summer Palace (¥30)</p>
+            <p>🔵 <strong>Evening:</strong> Nanluoguxiang hutongs + local dinner</p>
+          </div>
+        </div>
+      </section>
+
+      {/* GET CONNECTED - Monetization Module */}
+      <section className="mb-8 rounded-2xl border border-black/5 bg-white p-6">
+        <h2 className="mb-5 text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Get Connected in China</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {/* eSIM */}
+          <div className="rounded-xl border border-black/5 bg-gradient-to-br from-emerald-50 to-white p-5">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-lg">📱</span>
+              <div>
+                <p className="text-sm font-medium">eSIM for China</p>
+                <p className="text-xs text-stone/50">Instant connectivity, no physical SIM needed</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <a href="#" className="flex-1 rounded-lg bg-emerald-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-emerald-700">Airalo →</a>
+              <a href="#" className="flex-1 rounded-lg bg-emerald-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-emerald-700">Holafly →</a>
+            </div>
+          </div>
+
+          {/* VPN */}
+          <div className="rounded-xl border border-black/5 bg-gradient-to-br from-blue-50 to-white p-5">
+            <div className="mb-3 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-lg">🔒</span>
+              <div>
+                <p className="text-sm font-medium">VPN Services</p>
+                <p className="text-xs text-stone/50">Access Google, Instagram & more</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <a href="#" className="flex-1 rounded-lg bg-blue-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-blue-700">ExpressVPN →</a>
+              <a href="#" className="flex-1 rounded-lg bg-blue-600 py-2 text-center text-xs font-medium text-white transition-all hover:bg-blue-700">Astrill →</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Buy Me a Coffee */}
+        <div className="mt-4 flex items-center justify-center gap-2 rounded-xl border border-black/5 bg-amber-50/50 py-3">
+          <Coffee size={16} className="text-amber-700" />
+          <span className="text-xs text-stone">Support Solo Developer</span>
+          <a href="#" className="rounded-full bg-amber-600 px-4 py-1 text-xs font-medium text-white transition-all hover:bg-amber-700">Buy Me a Coffee</a>
+        </div>
+      </section>
     </div>
   );
 }

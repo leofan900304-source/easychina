@@ -174,6 +174,29 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Travel Essentials */}
+      <section className="border-t border-black/5 px-6 py-12">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-xs font-semibold tracking-[3px] text-stone/50 uppercase">Travel Essentials</h2>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <a href="/prepare/sim" className="rounded-full border border-black/5 bg-white px-5 py-2.5 text-xs font-medium text-stone transition-all hover:border-emerald-200 hover:text-emerald-600">
+              📱 eSIM & Internet
+            </a>
+            <a href="/prepare/payment" className="rounded-full border border-black/5 bg-white px-5 py-2.5 text-xs font-medium text-stone transition-all hover:border-blue-200 hover:text-blue-600">
+              💳 Payment Guide
+            </a>
+            <a href="/prepare/apps" className="rounded-full border border-black/5 bg-white px-5 py-2.5 text-xs font-medium text-stone transition-all hover:border-amber-200 hover:text-amber-600">
+              📲 Essential Apps
+            </a>
+          </div>
+          <div className="mt-6 flex items-center justify-center gap-4 text-xs text-stone/50">
+            <a href="#" className="hover:text-stone">📱 Airalo eSIM</a>
+            <a href="#" className="hover:text-stone">🔒 ExpressVPN</a>
+            <a href="#" className="hover:text-stone">☕ Support Us</a>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

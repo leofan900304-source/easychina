@@ -100,7 +100,7 @@ Respond with this exact JSON structure:
       "day": number,
       "title": "string",
       "location": "string",
-      "items": [{ "time": "string", "content": "string", "type": "string" }],
+      "items": [{ "time": "string", "content": "string", "type": "string", "cn": "string (Chinese name for driver)", "metro": "string (nearest metro station in Chinese & English)", "walking": "string (exit number and walking time, e.g. '1号口步行5分钟')" }],
       "tips": ["string"]
     }
   ],
